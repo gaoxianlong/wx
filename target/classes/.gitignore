@@ -1,0 +1,7 @@
+/com
+/jdbc.properties
+/log4j.properties
+/mybatis
+/spring-mvc.xml
+/spring-mybatis.xml
+/sqlMapConfig.xml

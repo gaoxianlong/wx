@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.jcxa.safe.dao.LoginDao">
+	<select  id="selectid" resultType="WxUser" parameterType="java.lang.String">
+		select * from twxuser where openid=#{openid}
+	</select>
+	<insert id="addWxUser" parameterType="WxUser">
+		insert into
+		twxuser(ID,nickName,sex,headUrl,openid,city1,city2,registertime,unionid)
+		values(null,#{nickName},#{sex},#{headUrl},#{openid},#{city1},#{city2},#{registertime},#{unionid})
+	</insert>
+	<update id="updatePhone" parameterType="Users">
+		update tuser set Telephone=#{Telephone} where Unionid=#{Unionid}
+	</update>
+	<select id="selectUser" resultType="Users">
+		select * from tuser where ID=#{ID}
+	</select>
+	<update id="addUser" parameterType="Users">
+		update tuser set RealName=#{RealName},Sex=#{Sex},City1=#{City1},City2=#{City2},
+		City3=#{City3},School=#{School},Grade=#{Grade},wxclass=#{wxclass}
+		where ID=#{ID}
+	</update>
+	<select id="selectPhone" resultType="Users" parameterType="java.lang.String">
+		select * from tuser where Telephone=#{Telephone}
+	</select>
+	<update id="updateUsers" parameterType="Users">
+		update tuser set
+		WXopendID=#{WXopendID},RealName=#{RealName},Sex=#{Sex},City1=#{City1},City2=#{City2},
+		Unionid=#{Unionid},HeadUrl=#{HeadUrl}
+		where ID=#{ID}
+	</update>
+	<delete id="deleteUsers" parameterType="java.lang.Integer">
+		delete from tuser where ID=#{ID}
+	</delete>
+	<insert id="addUserphone" parameterType="Users">
+		insert into
+		tuser(ID,NickName,Sex,HeadUrl,City1,City2,Registertime,Unionid,WXopendID,Telephone)
+		values(null,#{NickName},#{Sex},#{HeadUrl},#{City1},#{City2},#{Registertime},#{Unionid},#{WXopendID},#{Telephone})
+	</insert>
+	<update id="addWxUserPhone" parameterType="WxUser">
+	update twxuser set Telephone=#{Telephone} where ID=#{ID}
+	</update>
+	<select id="selectWxUser" resultType="WxUser" parameterType="java.lang.Integer">
+		select * from twxuser where ID=#{ID}
+	</select>
+	<select id="selectWxOpenid" resultType="Users" parameterType="java.lang.Integer">
+		select * from tuser where WXopendID=#{WXopendID}
+	</select>
+	<update id="addWxUser2" parameterType="WxUser">
+		update twxuser set RealName=#{RealName},Sex=#{Sex},City1=#{City1},City2=#{City2},
+		City3=#{City3},School=#{School},Grade=#{Grade},wxclass=#{wxclass}
+		where ID=#{ID}
+	</update>
+	<select id="selectCode" parameterType="java.lang.String" resultType="HelpCodes">
+		select * from thelpcode where HelpCode=#{HelpCode}
+	</select>
+	<update id="updateNum" parameterType="HelpCodes">
+		update thelpcode set Num=#{Num} where HelpCode=#{HelpCode}
+	</update>
+		<update id="updateHlepCode" parameterType="Users">
+		update tuser set
+		HelpCode=#{HelpCode}
+		where ID=#{ID}
+	</update>
+	
+	<select id="selectUnionid" resultType="WxUser" parameterType="java.lang.String">
+		select * from twxuser where Unionid=#{Unionid}
+	</select>
+	
+</mapper>

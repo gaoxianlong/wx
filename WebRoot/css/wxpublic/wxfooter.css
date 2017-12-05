@@ -1,0 +1,61 @@
+.footer {
+  width: 15rem;
+  height: 2rem;
+  position: fixed;
+  position: -ms-device-fixed;
+  left: 0;
+  bottom: 0;
+  background: #F9FAFC;
+}
+.footer .foot_nav {
+  width: 100%;
+  height: 2rem;
+}
+.footer .foot_nav a {
+  float: left;
+  width: 25%;
+  height: 2rem;
+}
+.footer .foot_nav a i {
+  display: block;
+  width: 100%;
+  height: 1.32rem;
+  padding-top: 0.2rem;
+  background: none;
+}
+.footer .foot_nav a i b {
+  display: block;
+  width: 1.08rem;
+  height: 1.08rem;
+  margin: 0 auto;
+  background-image: url(../../img/icon/vipprop.png);
+  background-size: 4.46rem 6.26rem;
+}
+.footer .foot_nav a span {
+  display: block;
+  width: 100%;
+  height: 0.68rem;
+  font-size: 0.4rem;
+  color: #7F8389;
+  text-align: center;
+  line-height: 0.68rem;
+}
+.footer .foot_nav .footlist:nth-child(2) i b {
+  background-position-y: -1.12rem;
+  -ms-background-position-y: -1.12rem;
+}
+.footer .foot_nav .footlist:nth-child(3) i b {
+  background-position-y: -2.24rem;
+  -ms-background-position-y: -2.24rem;
+}
+.footer .foot_nav .footlist:nth-child(4) i b {
+  background-position-y: -3.36rem;
+  -ms-background-position-y: -3.36rem;
+}
+.footer .foot_nav .foot_active i b {
+  background-position-x: -1.12rem;
+  -ms-background-position-x: -1.12rem;
+}
+.footer .foot_nav .foot_active span {
+  color: #DF5555;
+}
