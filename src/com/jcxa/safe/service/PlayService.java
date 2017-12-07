@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.jcxa.safe.dao.PlayDao;
 import com.jcxa.safe.entity.Series;
+import com.jcxa.safe.entity.Seriesmp;
 
 
 @Service
@@ -15,6 +16,10 @@ public class PlayService {
 	
 	public void ClickRatemp(Integer id){
 		playDao.ClickRatemp(id);
+	}
+	
+	public Seriesmp getplaySeriesmp(Integer seriesID){
+		return playDao.getplaySeriesmp(seriesID);
 	}
 	//mp3
 	

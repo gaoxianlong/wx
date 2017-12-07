@@ -1,6 +1,7 @@
 package com.jcxa.safe.dao;
 
 import com.jcxa.safe.entity.Series;
+import com.jcxa.safe.entity.Seriesmp;
 
 
 /**播放记录*/
@@ -9,7 +10,7 @@ public interface PlayDao {
 	//mp3
 	
 	public void ClickRatemp(Integer id);
-	
+	public Seriesmp getplaySeriesmp(Integer seriesID);
 	//mp3
 	public Series getplaySeries(Integer seriesID);
 	public void ClickRate(Integer id);

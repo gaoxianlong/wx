@@ -4,7 +4,11 @@
 <mapper namespace="com.jcxa.safe.dao.SeriesDao">
 
 <!-- MP3 -->
-
+	<!-- total -->
+	<select id="getSeriesermptotal" resultType="Seriesmp">
+		select * from mpseries
+	</select>
+	
 	<select id="getSeriesermpyi" resultType="Seriesmp">
 		select * from mpseries where TypeValue=#{id}
 	</select>
@@ -15,6 +19,10 @@
 	
 	<select id="seltypename" resultType="java.lang.String">
 		select TypeName from mptype where id=#{id}
+	</select>
+	
+	<select id="wxgetMulvsanmp" resultType="Type">
+		select * from mptype where ParentID=#{id} order by layered asc
 	</select>
 
 <!-- MP3 -->

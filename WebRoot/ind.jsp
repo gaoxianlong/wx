@@ -22,9 +22,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     This is my JSP page. <br>
-    
+    <!--  
     ${ui.total_fee }
     ${ui.return_code }
     ${ui.return_msg }
+    -->
+    <center>
+    
+    <div style="font-size:80px;">
+    <c:forEach items="${lsvideo }" var="ls">
+    <div>
+    <a href="mpplay?seriesID=${ls.SID }&id=${ls.ID }">
+     ${ls.title }
+     </a>
+     </div>
+    </c:forEach>
+    
+    
+    <div style="margin-top:20px;">
+    
+    next: ${nextid }
+   <br/>
+   
+    top: ${topid }
+    <br/>
+  url:  ${itemvo.videoURL }
+   <br/>
+  title: ${Title }
+   
+   <br/>
+  playing:${playing }
+  
+   
+    </div>
+    </div>
+    </center>
   </body>
 </html>

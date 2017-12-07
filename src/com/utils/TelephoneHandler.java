@@ -45,7 +45,7 @@ public class TelephoneHandler implements HandlerInterceptor{
 //			return true;
 //		}
 		//截取url
-		url=url.substring(3);
+		url=url.substring(4);
 		HttpSession session=request.getSession();
 		url=url+"?"+par;
 		session.setAttribute("urlphone", url);

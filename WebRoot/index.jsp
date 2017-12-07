@@ -320,6 +320,10 @@
     			<i class="nav_icon"><b></b></i>
     			<span>课程首页</span>
     		</a>
+    		<a class="footlist" href="<%=path%>/wxmp" da-id="${menupoint }" value="5">
+    			<i class="nav_icon"><b></b></i>
+    			<span>音频</span>
+    		</a>
     		<a href="<%=path%>/wxfpser?id=191" class="footlist" da-id="${menupoint }" value="2">
     			<i class="nav_icon"><b></b></i>
     			<span>教育扶贫</span>

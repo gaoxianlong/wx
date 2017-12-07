@@ -34,14 +34,18 @@ public class MpController {
 	@RequestMapping(value = "/wxmp")
 	public String wxindexser(
 			Map<String, Object> map,
-			@RequestParam(value = "id") int id,
+			@RequestParam(value = "id",required = false) Integer id,
 			HttpSession session,
 			@RequestParam(value = "prolocutor", required = false, defaultValue = "a") String prolocutor) {
 		List<Type> type = null;
 		List<Type> tyer = null;
 		List<Seriesmp> seriesmp = null;
-		type = seriesService.wxgetMulvsan(0);
-		tyer = seriesService.wxgetMulvsan(id);
+		type = seriesService.wxgetMulvsanmp(0);
+		System.out.println(id+"888888888888888888888888888888888888888888888888888");
+		if(id!=null){
+			tyer = seriesService.wxgetMulvsanmp(id);
+		}
+		
 		// 取出用户信息
 		Users user = (Users) session.getAttribute("user");
 		WxUser wxuser = (WxUser) session.getAttribute("wxuser");
@@ -109,13 +113,22 @@ public class MpController {
 			}
 
 		}
-
-		seriesmp = seriesService.getSeriesermpyi(id);
-
+		if(id !=null){
+			seriesmp = seriesService.getSeriesermpyi(id);
+		}else{
+			seriesmp = seriesService.getSeriesermptotal();
+		}
+		
+		String nameone=null;
 		// 一级菜单name
-		String nameone = seriesService.seltypename(id);
+		if(id != null){
+		    nameone = seriesService.seltypename(id);
+		}
+		
 		map.put("nameone", nameone);
-
+		// 二级菜单name
+		String nametwo = null;
+		map.put("nametwo", nametwo);
 		// 一级菜单
 		Integer point = id;
 		map.put("point", point);
@@ -130,7 +143,7 @@ public class MpController {
 		// 底部导航
 		map.put("menupoint", 5);
 
-		return "/index.jsp";
+		return "/views/wxaudio/audioindex.jsp";
 	}
 
 	// 查询二级菜单视频
@@ -139,15 +152,15 @@ public class MpController {
 			Map<String, Object> map,
 			@RequestParam(value = "id") int id,
 			@RequestParam(value = "erid") Integer erid,
-			@RequestParam(value = "sorid") Integer sorid,
-			@RequestParam(value = "pointding") Integer pointding,
+			
+			
 			HttpSession session,
 			@RequestParam(value = "prolocutor", required = false, defaultValue = "a") String prolocutor) {
 		List<Type> type = null;
 		List<Type> tyer = null;
 		List<Seriesmp> seriesmp = null;
-		type = seriesService.wxgetMulvsan(0);
-		tyer = seriesService.wxgetMulvsan(id);
+		type = seriesService.wxgetMulvsanmp(0);
+		tyer = seriesService.wxgetMulvsanmp(id);
 		// 取出用户信息
 		Users user = (Users) session.getAttribute("user");
 		WxUser wxuser = (WxUser) session.getAttribute("wxuser");
@@ -227,7 +240,7 @@ public class MpController {
 		map.put("nameone", nameone);
 		// 二级菜单name
 		String nametwo = seriesService.seltypename(erid);
-		map.put("nametwo", nameone);
+		map.put("nametwo", nametwo);
 
 		// 一级菜单
 		Integer point = id;
@@ -243,7 +256,7 @@ public class MpController {
 
 		map.put("prolocutorindex", prolocutorindex);
 
-		return "/index.jsp";
+		return "/views/wxaudio/audioindex.jsp";
 
 	}
 

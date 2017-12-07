@@ -8,6 +8,10 @@
 		
        UPDATE mpseries SET ClickRate=ClickRate+1 WHERE ID = #{id}
 	</update>
+	
+	<select id="getplaySeriesmp" resultType="Seriesmp">
+		select * from mpseries where ID=#{seriesID}
+	</select>
 	<!-- MP3 -->
 	
 	

@@ -14,11 +14,12 @@ import com.jcxa.safe.entity.Type;
 
 public interface SeriesDao {
 		//MP3
-		
+			//total
+	    public List<Seriesmp> getSeriesermptotal();
 		public List<Seriesmp> getSeriesermpyi(Integer id);
 		public List<Seriesmp> getSeriesermper(Integer id);
 		public String seltypename(Integer id);
-		
+		public List<Type> wxgetMulvsanmp(Integer id);
 		//MP3
 	
 	

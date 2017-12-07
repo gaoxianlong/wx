@@ -5,6 +5,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/conf"/>
         <property name="java-output-path" value="/wxxoldo/WebRoot/WEB-INF/classes"/>
-        <property name="context-root" value="/wx"/>
+        <property name="context-root" value="/wxx"/>
     </wb-module>
 </project-modules>

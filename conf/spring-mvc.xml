@@ -19,7 +19,7 @@
 	<context:component-scan base-package="com.jcxa.safe" use-default-filters="false">
 	 <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
-    
+   <!-- 
 	<mvc:interceptors>
 		<mvc:interceptor>
      
@@ -99,7 +99,7 @@
             <bean class="com.utils.HelpCodeHandler"></bean>
         </mvc:interceptor>
 	</mvc:interceptors>
-
+  -->
 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
      <!-- 定义默认的异常处理页面 -->
   	<!--  <property name="defaultErrorView" value="/test.jsp"/>-->

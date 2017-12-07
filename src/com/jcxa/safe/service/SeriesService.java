@@ -17,7 +17,10 @@ public class SeriesService {
 	
 	
 	//MP3
-	
+		//total
+		public List<Seriesmp> getSeriesermptotal(){
+			return seriesDao.getSeriesermptotal();
+		}
 		public List<Seriesmp> getSeriesermpyi(Integer id){
 			return seriesDao.getSeriesermpyi(id);
 		}
@@ -26,6 +29,9 @@ public class SeriesService {
 		}
 		public String seltypename(Integer id){
 			return seriesDao.seltypename(id);
+		}
+		public List<Type> wxgetMulvsanmp(Integer id){
+			return seriesDao.wxgetMulvsanmp(id);
 		}
 	//MP3
 	

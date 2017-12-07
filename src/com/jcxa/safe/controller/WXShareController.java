@@ -19,7 +19,7 @@ public class WXShareController
     throws ServletException, IOException
   {
 	  System.out.println("我是微信授权登录");
-    String backurl = "http://www.shoutike.com/wx/sharecallBack";
+    String backurl = "http://www.shoutike.com/wxx/sharecallBack";
     String url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1d42fa2fba520d22&redirect_uri=" + 
       URLEncoder.encode(backurl) + "&response_type=code&scope=snsapi_userinfo&" + 
       "state=STATE#wechat_redirect";
