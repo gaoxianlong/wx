@@ -149,7 +149,7 @@ var jssec = 3;
 var myDate = new Date();
 var $date = myDate.getDate();
 
-$('#mytx').on('touchstart',function(){
+$('#mytx').on('click',function(){
 	if("false" == $(this).attr("data-onoff")){
 		return false;
 	}

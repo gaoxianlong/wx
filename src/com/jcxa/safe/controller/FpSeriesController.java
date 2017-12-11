@@ -298,8 +298,8 @@ public class FpSeriesController {
 					}
 	
 				}
-			tysan=seriesService.wxgetMulvsan(id);
-			series=seriesService.getSeriessan(sanid);
+			 tysan=seriesService.wxgetMulvsan(id);
+			 series=seriesService.getSeriessan(sanid);
 				
 			 Integer point=id;
 			 Integer pointsan=sanid;
@@ -440,9 +440,5 @@ public class FpSeriesController {
 			 map.put("menupoint", 2);
 			 map.put("school", 1);
 			 return "views/wxfp/wxfpindex.jsp";
-			 
-		
 		}
-		
-
 }

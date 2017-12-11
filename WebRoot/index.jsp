@@ -4,11 +4,7 @@
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-			
-			
-			
-			
+			+ path + "/";		
 %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -30,10 +26,8 @@
 <body>
 <div class="wx_wrap">
 	<div class="wx_topnav">
-		<div class="person">
-			
+		<div class="person">	
 		</div>
-		
 		<div class="member">
 			<a href="views/wxmember.jsp">成为VIP</a>
 		</div>
@@ -56,23 +50,18 @@
 			        	<a href="views/aboutplay.jsp?url=stk/stkcpxxp/stkcpxxp.mp4&a=b" class="xcp_btn">
 			        		<img src="img/banner/stkxcp.png"/>
 			        	</a>
-			        </div>
-			        
+			        </div> 
 			    </div>
 			    <div class="swiper-pagination"></div>
 			</div>
 		</div>
 		<div class="banner_mask"></div>
 	</div>
-	
 	<div class="wx_mfzq">
 		<div class="wx_mfimg">
 			<img src="img/mfzq.png"/>
 		</div>
 	</div>
-	
-	
-	
 	<div class="wx_mfkc swiper-container">
 		<div class="mfkc_con swiper-wrapper">
 			<div class="wx_kc swiper-slide">
@@ -100,7 +89,6 @@
 				</c:forEach>
 			</div>
 			
-			
 			<div class="wx_kc swiper-slide">
 			<c:forEach items="${freetwo }" var="ser">
 				<div class="kc_item">
@@ -124,10 +112,8 @@
 				</div>
 				</c:forEach>
 			</div>
-	
 		</div>
 	</div>
-	
 	
 	<!-- index -->
 	<div class="wx_nav">
@@ -205,7 +191,6 @@
 		</div>
 	</div>
 	
-	
 	<!-- index -->
 	<div class="wx_kc clearfix">
 	<c:forEach items="${series }" var="ser">
@@ -227,16 +212,9 @@
 			</a>
 			
 		</div>
+	</c:forEach>
 		
-		
-		
-		
-		</c:forEach>
-		
-		
-		
-		
-		<c:forEach items="${hobby }" var="ser">
+	<c:forEach items="${hobby }" var="ser">
 	
 		<div class="kc_item">
 			<a href="play?seriesID=${ser.ID }">
@@ -254,19 +232,11 @@
 					</div>
 				</div>
 			</a>
-			
 		</div>
 		
+	</c:forEach>
 		
-		
-		
-		</c:forEach>
-		
-		
-		
-		
-		<c:forEach items="${vphigh }" var="ser">
-	
+	<c:forEach items="${vphigh }" var="ser">
 		<div class="kc_item">
 			<a href="play?seriesID=${ser.ID }">
 				<div class="kc_img">
@@ -283,15 +253,9 @@
 					</div>
 				</div>
 			</a>
-			
 		</div>
-		
-		</c:forEach>
-		
-		
-		
-		<c:forEach items="${ff }" var="ser">
-	
+	</c:forEach>	
+	<c:forEach items="${ff }" var="ser">
 		<div class="kc_item">
 			<a href="play?seriesID=${ser.ID }">
 				<div class="kc_img">
@@ -307,10 +271,9 @@
 						<strong>￥${ser.realPrice }</strong>
 					</div>
 				</div>
-			</a>
-			
+			</a>	
 		</div>
-		</c:forEach>
+	</c:forEach>
 	</div>
 <!--  -->
     
@@ -336,13 +299,9 @@
     			<i class="nav_icon"><b></b></i>
     			<span>个人中心</span>
     		</a>
-    		
     	</div>
-    	
     </footer>
-
 </div>
-
 </body>
 </html>
 <!--<script tyle="text/javascript" src="jscript/zepto.js"></script>-->
@@ -542,5 +501,4 @@ $(function(){
         }   
     });  
   });  
-  
 </script>  

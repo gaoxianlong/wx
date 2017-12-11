@@ -8,8 +8,10 @@ var path=localhostPaht+projectName;
 //初始化
 var timer;
 var num = 1;
+var isPlaying = true; //音频播放状态 true播放中 
 var $width = 0;
 var slider = 10;
+var curmargin = 0.34;//进度条圆点本身的margin-left
 var player = $("#audio")[0]; /*jquery对象转换成js对象*/
 var container = document.querySelector('.singerimg');
 var $image = container.querySelector('img');
@@ -22,18 +24,18 @@ playingBtn.addEventListener('click',function bindEvent(){
     if (num == 1){ /*如果已经播放*/
    	    player.pause();/*暂停*/
         clearInterval(timer);
-        //$('.singerimg img').removeClass('anmiting');  
-        //$(this).css('background-position-y','-11.9rem');
-        this.style.backgroundPositionY = '-11.9rem';
+        this.style.background = 'url('+path+'/img/audio/playing_btn.png) no-repeat center';
+        this.style.backgroundSize = '2.04rem 2.04rem';
+        this.style.webkitBackgroundSize = '2.04rem 2.04rem';
         num++;
 	    pause();
         return num;
     }else {
         player.play(); /*播放*/
         fntimer();
-        //$('.singerimg img').addClass('anmiting');
-        //$(this).css('background-position-y','-13.98rem');
-        this.style.backgroundPositionY = '-13.98rem';
+        this.style.background = 'url('+path+'/img/audio/play_stop.png) no-repeat center';
+        this.style.backgroundSize = '2.04rem 2.04rem';
+        this.style.webkitBackgroundSize = '2.04rem 2.04rem';
         num=1;
         play();
         return num;
@@ -86,6 +88,51 @@ $('#next_btn').on('click',function(){
 });
 
 //进度条移动
+fnslider();
+function fnslider(){
+	$('#cur-btn').on('touchstart',function(e){
+		
+		var disx = 0;
+	    var movedisx = 0;
+	    var nowtime = 0;
+	    var nowleft = $width;
+		clearInterval(timer);
+		//点击圆点时 当前的left值
+		disx = e.originalEvent.targetTouches[0].pageX*2/50;
+		$('.wx_wrap').on('touchmove',function(e){
+			
+			//鼠标或者手指移动的距离
+			movedisx = e.originalEvent.targetTouches[0].pageX*2/50;
+	        $width  = movedisx - disx + nowleft;
+			if($width < 0)$width = 0;
+			if($width > slider)$width = slider;
+			$('#process-cur').css('width',$width+'rem');
+	        $('#cur-btn').css('left',$width+'rem');
+	        //根据移动的距离计算出需要播放的当前时间
+	        nowtime = $width/slider*player.duration;
+	        sToM(nowtime,$('#currentTime'));
+		});
+		$('.wx_wrap').on('touchend',function(e){
+			
+			//鼠标手指抬起时 设置改变当前播放时间
+			var $currentTime = $width/slider*player.duration;
+			player.currentTime = $currentTime;
+			if('fastSeek' in player){
+			    player.fastSeek($currentTime);//改变audio.currentTime的值
+			}else if(player.seekable.start(0)<= $currentTime <=player.seekable.end(0)){
+				//获得第一个以秒计的音频可寻址范围（部分）：
+				player.currentTime = $currentTime;
+			}else{
+				//如果以上都不满足 就设置播放时间为缓冲到最大位置的时间
+				//player.buffered表示音频已缓冲部分的
+				player.currentTime = player.buffered.end(player.buffered.length-1);
+			}
+			fntimer();
+			$('.wx_wrap').off('touchmove');
+			$('.wx_wrap').off('touchend');
+		});
+	});
+}
 
 
 
@@ -97,9 +144,9 @@ function fntimer(){
 		sToM(player.currentTime,$('#currentTime'));
 		sToM(player.duration,$('#total-time'));
 		//进度条
-		$width = audio.currentTime/audio.duration*slider+'rem';
-		$('#process-cur').css('width',$width);
-		$('#cur-btn').css('left',$width);
+		$width = audio.currentTime/audio.duration*slider;
+		$('#process-cur').css('width',$width+'rem');
+		$('#cur-btn').css('left',$width+'rem');
 		if(audio.currentTime == audio.duration){
 			clearInterval(timer);
 //			$(this).css('background-position-y','-13.98rem');
@@ -135,18 +182,26 @@ $('.music_menu').on('click',function(){
 	if($(this).attr('data-onoff')=='false'){
 		$(this).attr('data-onoff','true');
 		$('.audio_singer').hide();
-		$('.audio_lrc').show();
+		$('.lrc_mask').show();
+		$(this).css('background','url('+path+'/img/audio/lrcicon01.png) no-repeat center');
+		$(this).css('background-size','1.12rem 0.72rem');
+		$(this).css('-webkit-background-size','1.12rem 0.72rem');
 	}else{
 		$(this).attr('data-onoff','false');	
-		$('.audio_lrc').hide();
+		$('.lrc_mask').hide();
 		$('.audio_singer').show();
+		$(this).css('background','url('+path+'/img/audio/lrcicon.png) no-repeat center');
+		$(this).css('-webkit-background-size','1.12rem 0.72rem');
 	}
 });
+
+
 //选集
 $('.loop').on('click',function(){
 	$('.footer').hide();
 //	$('.mask_list').slideDown();
 	$('.mask_list').show();
+	$('.sel_title').hide();
 	
 });
 //选集菜单关闭
@@ -154,6 +209,7 @@ $('.lists_close').on('click',function(){
 	$('.footer').show();
 //	$('.mask_list').slideUp();
 	$('.mask_list').hide();
+	$('.sel_title').show();
 });
 
 //分钟转化成秒

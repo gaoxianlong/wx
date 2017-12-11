@@ -45,7 +45,6 @@ public class MpController {
 		if(id!=null){
 			tyer = seriesService.wxgetMulvsanmp(id);
 		}
-		
 		// 取出用户信息
 		Users user = (Users) session.getAttribute("user");
 		WxUser wxuser = (WxUser) session.getAttribute("wxuser");
@@ -113,37 +112,34 @@ public class MpController {
 			}
 
 		}
-		if(id !=null){
-			seriesmp = seriesService.getSeriesermpyi(id);
-		}else{
-			seriesmp = seriesService.getSeriesermptotal();
-		}
-		
-		String nameone=null;
-		// 一级菜单name
-		if(id != null){
-		    nameone = seriesService.seltypename(id);
-		}
-		
-		map.put("nameone", nameone);
-		// 二级菜单name
-		String nametwo = null;
-		map.put("nametwo", nametwo);
-		// 一级菜单
-		Integer point = id;
-		map.put("point", point);
+				if(id !=null){
+					seriesmp = seriesService.getSeriesermpyi(id);
+				}else{
+					seriesmp = seriesService.getSeriesermptotal();
+				}
+				
+				String nameone=null;
+				// 一级菜单name
+				if(id != null){
+				    nameone = seriesService.seltypename(id);
+				}
+				
+				map.put("nameone", nameone);
+				// 二级菜单name
+				String nametwo = null;
+				map.put("nametwo", nametwo);
+				// 一级菜单
+				Integer point = id;
+				map.put("point", point);
+				Integer pointb = 0;
+				map.put("type", type);
+				map.put("tyer", tyer);
+				map.put("seriesmp", seriesmp);
+				map.put("prolocutorindex", prolocutorindex);
+				// 底部导航
+				map.put("menupoint", 5);
 
-		Integer pointb = 0;
-
-		map.put("type", type);
-		map.put("tyer", tyer);
-		map.put("seriesmp", seriesmp);
-		map.put("prolocutorindex", prolocutorindex);
-
-		// 底部导航
-		map.put("menupoint", 5);
-
-		return "/views/wxaudio/audioindex.jsp";
+				return "/views/wxaudio/audioindex.jsp";
 	}
 
 	// 查询二级菜单视频
@@ -234,14 +230,12 @@ public class MpController {
 
 		// 音频封面
 		seriesmp = seriesService.getSeriesermper(erid);
-
 		// 一级菜单name
 		String nameone = seriesService.seltypename(id);
 		map.put("nameone", nameone);
 		// 二级菜单name
 		String nametwo = seriesService.seltypename(erid);
 		map.put("nametwo", nametwo);
-
 		// 一级菜单
 		Integer point = id;
 		map.put("point", point);
@@ -251,9 +245,7 @@ public class MpController {
 		// 一二级菜单
 		map.put("type", type);
 		map.put("tyer", tyer);
-
 		map.put("seriesmp", seriesmp);
-
 		map.put("prolocutorindex", prolocutorindex);
 
 		return "/views/wxaudio/audioindex.jsp";

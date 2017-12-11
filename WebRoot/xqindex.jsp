@@ -4,11 +4,7 @@
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-			
-			
-			
-			
+			+ path + "/";		
 %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -31,9 +27,7 @@
 <div class="wx_wrap">
 	<div class="wx_topnav">
 		<div class="person">
-			
 		</div>
-		
 		<div class="member">
 			<a href="views/wxmember.jsp">成为VIP</a>
 		</div>
@@ -56,8 +50,7 @@
 			        	<a href="views/aboutplay.jsp?url=stk/stkcpxxp/stkcpxxp.mp4&a=b" class="xcp_btn">
 			        		<img src="img/banner/stkxcp.png"/>
 			        	</a>
-			        </div>
-			        
+			        </div> 
 			    </div>
 			    <div class="swiper-pagination"></div>
 			</div>
@@ -70,9 +63,7 @@
 			<img src="img/mfzq.png"/>
 		</div>
 	</div>
-	
 	<!--  -->
-	
 	<div class="wx_mfkc swiper-container">
 		<div class="mfkc_con swiper-wrapper">
 			<div class="wx_kc swiper-slide">
@@ -102,7 +93,6 @@
 		</div>
 	</div>
 	
-	
 	<!-- index -->
 	<div class="wx_nav">
 		<div class="nav_menu">
@@ -116,10 +106,8 @@
 				<i></i>
 			</div>
 			<div class="nav_list" data-onoff="false">
-				
 			</div>
 			<div class="nav_list" data-onoff="false">
-			
 			</div>
 		</div>
 		<div class="nav_wrap">
@@ -154,7 +142,6 @@
 		</div>
 	</div>
 	
-	
 	<!-- index -->
 	<div class="wx_kc clearfix">
 	<c:forEach items="${series }" var="ser">
@@ -174,19 +161,11 @@
 					</div>
 				</div>
 			</a>
-			
 		</div>
 		
+	</c:forEach>
 		
-		
-		
-		</c:forEach>
-		
-		
-		
-		
-		<c:forEach items="${hobby }" var="ser">
-	
+	<c:forEach items="${hobby }" var="ser">
 		<div class="kc_item">
 			<a href="play?seriesID=${ser.ID }">
 				<div class="kc_img">
@@ -203,19 +182,11 @@
 					</div>
 				</div>
 			</a>
-			
 		</div>
-		
-		
-		
-		
-		</c:forEach>
-		
-		
-		
-		
-		<c:forEach items="${vphigh }" var="ser">
 	
+	</c:forEach>
+		
+	<c:forEach items="${vphigh }" var="ser">
 		<div class="kc_item">
 			<a href="play?seriesID=${ser.ID }">
 				<div class="kc_img">
@@ -232,15 +203,10 @@
 					</div>
 				</div>
 			</a>
-			
 		</div>
+	</c:forEach>
 		
-		</c:forEach>
-		
-		
-		
-		<c:forEach items="${ff }" var="ser">
-	
+	<c:forEach items="${ff }" var="ser">
 		<div class="kc_item">
 			<a href="play?seriesID=${ser.ID }">
 				<div class="kc_img">
@@ -257,12 +223,10 @@
 					</div>
 				</div>
 			</a>
-			
 		</div>
-		</c:forEach>
+	</c:forEach>
 	</div>
 <!--  -->
-    
    <footer class="footer">
     	<div class="foot_nav">
     		<a href="<%=path%>/wxser?id=191" class="footlist" da-id="${menupoint }" value="1">
@@ -285,9 +249,7 @@
     			<i class="nav_icon"><b></b></i>
     			<span>个人中心</span>
     		</a>
-    		
     	</div>
-    	
     </footer>
 </div>
 
@@ -328,7 +290,6 @@ $('.footlist').each(function(){
 });
 </script>
 
-
 <script type="text/javascript">
 //banner
 $(document).ready(function () {
@@ -355,28 +316,16 @@ $(document).ready(function () {
 		autoplayDisableOnInteraction : false,  //自动播放 手指触摸滑动后继续自动播放  true是手指触摸滑动后 停止自动播放
 //		effect:"flip"                          //3d切换
 	});
-
 //特效 添加淡入淡出效果
-
-	$("img.lazy").lazyload({
-    
+$("img.lazy").lazyload({
 	effect : "fadeIn"
-
 });
-
-
 //加载隐藏图片 默认情况下 初始不加载隐藏图片
-
 	$("img.lazy").lazyload({ 
-    
-	skip_invisible : false
+		skip_invisible : false
+	});	
 });
-	
-});
-
 </script>
-
-
 <script>  
 //微信分享朋友圈  
 $(function(){  
@@ -472,5 +421,4 @@ $(function(){
         }   
     });  
   });  
-  
 </script>  

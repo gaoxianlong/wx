@@ -61,10 +61,9 @@
   width: 0.8rem;
   height: 0.8rem;
   margin-right: 0.2rem;
-  background: url(../../img/icon/vipprop.png) no-repeat center;
-  background-size: 2.74rem 16.78rem;
-  -webkit-background-size: 2.74rem 16.78rem;
-  background-position: 0 -5.6rem;
+  background-image: url("../../img/audio/audioicon.png");
+  background-size: 1.12rem 3.4rem;
+  -webkit-background-size: 1.12rem 3.4rem;
   margin-top: 0.6rem;
   border-radius: 50%;
   -webkit-border-radius: 50%;

@@ -32,7 +32,6 @@ public class SeriesController {
 		
 	    @Autowired
 		private ProlocutorService prolocutorService;
-	    
 	    @Autowired
 	    private LoginService loginService;
 	//查询二级菜单视频
@@ -115,9 +114,6 @@ public class SeriesController {
 	
 				}
 		
-			
-			
-			
 						List<Series> series=null;
 						List<Series> hobby=null;
 						List<Series> vphigh=null;
@@ -131,9 +127,7 @@ public class SeriesController {
 						}else{
 							series=seriesService.getSerieser(id);
 						}
-						
-						
-						
+							
 						 Integer point=id;
 						 map.put("point", point);
 						
@@ -154,12 +148,5 @@ public class SeriesController {
 						 map.put("sort", sort);
 						 map.put("prolocutorindex", prolocutorindex);
 						 return "index.jsp";
-			 
-		
 		}
-		
-
-		
-		
-
 }

@@ -19,46 +19,47 @@
 .footer .foot_nav a i {
   display: block;
   width: 100%;
-  height: 1.32rem;
+  height: 1.16rem;
   padding-top: 0.2rem;
   background: none;
 }
 .footer .foot_nav a i b {
   display: block;
-  width: 1.08rem;
-  height: 1.08rem;
+  width: 0.96rem;
+  height: 0.96rem;
   margin: 0 auto;
-  background-image: url(../../img/icon/vipprop.png);
-  background-size: 2.74rem 16.78rem;
+  background-image: url("../../img/icon/foornav.png");
+  background-size: 1.96rem 4.96rem;
+  -webkit-background-size: 1.96rem 4.96rem;
 }
 .footer .foot_nav a span {
   display: block;
   width: 100%;
-  height: 0.68rem;
+  height: 0.84rem;
   font-size: 0.4rem;
   color: #7F8389;
   text-align: center;
-  line-height: 0.68rem;
+  line-height: 0.84rem;
 }
 .footer .foot_nav .footlist:nth-child(2) i b {
-  background-position-y: -1.12rem;
-  -ms-background-position-y: -1.12rem;
+  background-position-y: -1rem;
+  -ms-background-position-y: -1rem;
 }
 .footer .foot_nav .footlist:nth-child(3) i b {
-  background-position-y: -2.24rem;
-  -ms-background-position-y: -2.24rem;
+  background-position-y: -2rem;
+  -ms-background-position-y: -2rem;
 }
 .footer .foot_nav .footlist:nth-child(4) i b {
-  background-position-y: -3.36rem;
-  -ms-background-position-y: -3.36rem;
+  background-position-y: -3rem;
+  -ms-background-position-y: -3rem;
 }
 .footer .foot_nav .footlist:nth-child(5) i b {
-  background-position-y: -4.48rem;
-  -ms-background-position-y: -4.48rem;
+  background-position-y: -4rem;
+  -ms-background-position-y: -4rem;
 }
 .footer .foot_nav .foot_active i b {
-  background-position-x: -1.12rem;
-  -ms-background-position-x: -1.12rem;
+  background-position-x: -1rem;
+  -ms-background-position-x: -1rem;
 }
 .footer .foot_nav .foot_active span {
   color: #DF5555;

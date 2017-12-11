@@ -252,100 +252,81 @@ public class MpPlayController {
 			@RequestParam(value = "seriesID") Integer seriesID,
 			@RequestParam(value = "id", required = false) Integer id
 			) {
+				playService.ClickRatemp(seriesID);
 		
-		
-		playService.ClickRatemp(seriesID);
-		
-		int vid=0;
-		String show=null;
-		List<Seriesvideo> lsvideo = null;// 免费音频集合
-		List<Seriesvideo> videopay = null;// 付费音频集合
-		
-		lsvideo = orderService.getvideomp(seriesID);
-		//取出用户信息
-		Users user = (Users) session.getAttribute("user");
-		WxUser wxuser = (WxUser) session.getAttribute("wxuser");
-	
-		//查询音频封面的信息
-		Seriesmp sers=playService.getplaySeriesmp(seriesID);
-		
-		//取出音频封面的Title
-		String Title=sers.getTitle();
-		//取出音频封面的图片
-		String bg=sers.getPicURL();
-		//音频的价格
-		int price=sers.getRealPrice();
-		String pric=String.valueOf(price);
-		
-		int ids = 0;
-		if(id ==null){
-			
-			//得到封面默认的第一个音频ID
-			for (int i = 0; i < lsvideo.size(); i++) {
-				ids = lsvideo.get(0).getID();
-			}	
-		}
-		
-		//给具体音频的ID赋值
-		if(id==null){
-			vid=ids;
-		}else{
-			vid=id;
-		}
-		
-		//得到每一个具体音频的信息
-		Seriesvideo itemvo = orderService.playvideomp(vid);
-		//得到下一个具体音频的信息
-		int maxsort = 0;
-		if(vid != 0){
-			 maxsort = lsvideo.get(lsvideo.size() - 1).getSort();
-		}
-		
-		int topsort=1;
-		int nextsort = 0;
-		
-		int topid=0;
-		int nextid = 0;
-		
-		if(vid != 0){
-
-			if (itemvo.getSort() < maxsort) {
-				nextsort = itemvo.getSort() + 1;
-			} else {
-				nextsort = 1;
-			}
-			
-			if(itemvo.getSort()>1){
-				topsort=itemvo.getSort() - 1;
-			}else{
-				topsort=maxsort;
-			}
-		Seriesvideo nextitemvo = orderService.selnextmp(seriesID, nextsort);
-		Seriesvideo topitemvo = orderService.selnextmp(seriesID, topsort);
-		
-	   //得到下一个具体音频的ID
-	    nextid = nextitemvo.getID();
-	    topid = topitemvo.getID();
-	
-		}
-		String url=itemvo.getVideoURL();
-		
-		
-		
-		
-		
-		
-		Mpnext mpnext =new Mpnext();
-		mpnext.setBg(bg);
-		mpnext.setTitle(Title);
-		mpnext.setUrl(url);
-		mpnext.setNext(nextid);
-		mpnext.setTop(topid);
-		mpnext.setId(vid);
-		mpnext.setSerid(seriesID);
-		
-	
-		return mpnext;
+				int vid=0;
+				String show=null;
+				List<Seriesvideo> lsvideo = null;// 免费音频集合
+				List<Seriesvideo> videopay = null;// 付费音频集合
+				
+				lsvideo = orderService.getvideomp(seriesID);
+				//取出用户信息
+				Users user = (Users) session.getAttribute("user");
+				WxUser wxuser = (WxUser) session.getAttribute("wxuser");
+				//查询音频封面的信息
+				Seriesmp sers=playService.getplaySeriesmp(seriesID);
+				//取出音频封面的Title
+				String Title=sers.getTitle();
+				//取出音频封面的图片
+				String bg=sers.getPicURL();
+				//音频的价格
+				int price=sers.getRealPrice();
+				String pric=String.valueOf(price);
+				
+				int ids = 0;
+				if(id ==null){
+					//得到封面默认的第一个音频ID
+					for (int i = 0; i < lsvideo.size(); i++) {
+						ids = lsvideo.get(0).getID();
+					}	
+				}
+					//给具体音频的ID赋值
+					if(id==null){
+						vid=ids;
+					}else{
+						vid=id;
+					}
+				//得到每一个具体音频的信息
+				Seriesvideo itemvo = orderService.playvideomp(vid);
+				//得到下一个具体音频的信息
+				int maxsort = 0;
+				if(vid != 0){
+					 maxsort = lsvideo.get(lsvideo.size() - 1).getSort();
+				}
+					int topsort=1;
+					int nextsort = 0;
+					int topid=0;
+					int nextid = 0;
+				
+				if(vid != 0){
+					if (itemvo.getSort() < maxsort) {
+						nextsort = itemvo.getSort() + 1;
+					} else {
+						nextsort = 1;
+					}
+					
+					if(itemvo.getSort()>1){
+						topsort=itemvo.getSort() - 1;
+					}else{
+						topsort=maxsort;
+					}
+						Seriesvideo nextitemvo = orderService.selnextmp(seriesID, nextsort);
+						Seriesvideo topitemvo = orderService.selnextmp(seriesID, topsort);
+						//得到下一个具体音频的ID
+						nextid = nextitemvo.getID();
+						topid = topitemvo.getID();
+				}
+				String url=itemvo.getVideoURL();
+				Mpnext mpnext =new Mpnext();
+				mpnext.setBg(bg);
+				mpnext.setTitle(Title);
+				mpnext.setUrl(url);
+				mpnext.setNext(nextid);
+				mpnext.setTop(topid);
+				mpnext.setId(vid);
+				mpnext.setSerid(seriesID);
+				
+				return mpnext;
 
 
 	}

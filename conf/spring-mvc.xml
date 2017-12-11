@@ -22,19 +22,15 @@
    <!-- 
 	<mvc:interceptors>
 		<mvc:interceptor>
-     
-            <mvc:mapping path="/**"/>
-          
-            
-            
-            <mvc:exclude-mapping path="/**/fonts/*"/>
-         <mvc:exclude-mapping path="/**/*.css"/>
-         <mvc:exclude-mapping path="/**/*.js"/>
-         <mvc:exclude-mapping path="/**/*.png"/>
-         <mvc:exclude-mapping path="/**/*.gif"/>
-        <mvc:exclude-mapping path="/**/*.jpg"/>
-         <mvc:exclude-mapping path="/**/*.jpeg"/>
-            
+         	 <mvc:mapping path="/**"/>
+  
+	         <mvc:exclude-mapping path="/**/fonts/*"/>
+	         <mvc:exclude-mapping path="/**/*.css"/>
+	         <mvc:exclude-mapping path="/**/*.js"/>
+	         <mvc:exclude-mapping path="/**/*.png"/>
+	         <mvc:exclude-mapping path="/**/*.gif"/>
+	         <mvc:exclude-mapping path="/**/*.jpg"/>
+	         <mvc:exclude-mapping path="/**/*.jpeg"/>
             
             <mvc:exclude-mapping path="/wxshare"/>
 			<mvc:exclude-mapping path="/sharecallBack"/>
@@ -45,59 +41,48 @@
 			<mvc:exclude-mapping path="/CheckVcode"/>
 			
 			<mvc:exclude-mapping path="/shareServlet"/>
-			 <mvc:exclude-mapping path="/selectHelpCode"/>
+			<mvc:exclude-mapping path="/selectHelpCode"/>
 			<mvc:exclude-mapping path="/addHelpCode"/>
             <bean class="com.utils.MyHandler"></bean>
         </mvc:interceptor>
+        
 		<mvc:interceptor>
-       
             <mvc:mapping path="/**"/>
-          
+           
+		         <mvc:exclude-mapping path="/**/fonts/*"/>
+		         <mvc:exclude-mapping path="/**/*.css"/>
+		         <mvc:exclude-mapping path="/**/*.js"/>
+		         <mvc:exclude-mapping path="/**/*.png"/>
+		         <mvc:exclude-mapping path="/**/*.gif"/>
+		         <mvc:exclude-mapping path="/**/*.jpg"/>
+		         <mvc:exclude-mapping path="/**/*.jpeg"/>
+            
+		            <mvc:exclude-mapping path="/wxshare"/>
+					<mvc:exclude-mapping path="/sharecallBack"/>
+					<mvc:exclude-mapping path="/wxser"/>
+					<mvc:exclude-mapping path="/addphone"/>
+					<mvc:exclude-mapping path="/addUser"/>
+					<mvc:exclude-mapping path="/SendCodeSMS"/>
+					<mvc:exclude-mapping path="/CheckVcode"/>
+					<mvc:exclude-mapping path="/selectPhone"/>
+					<mvc:exclude-mapping path="/notifyServlet"/>
+					<mvc:exclude-mapping path="/money"/>
+					<mvc:exclude-mapping path="/freeplay"/>
+					<mvc:exclude-mapping path="/shareServlet"/>
+					<mvc:exclude-mapping path="/wxfpser"/>
+					<mvc:exclude-mapping path="/wxfpright"/>
+					<mvc:exclude-mapping path="/wxfprighthobby"/>
+					<mvc:exclude-mapping path="/selectHelpCode"/>
+					<mvc:exclude-mapping path="/addHelpCode"/>
 
-            
-            <mvc:exclude-mapping path="/**/fonts/*"/>
-         <mvc:exclude-mapping path="/**/*.css"/>
-         <mvc:exclude-mapping path="/**/*.js"/>
-         <mvc:exclude-mapping path="/**/*.png"/>
-         <mvc:exclude-mapping path="/**/*.gif"/>
-        <mvc:exclude-mapping path="/**/*.jpg"/>
-         <mvc:exclude-mapping path="/**/*.jpeg"/>
-            
-            
-            <mvc:exclude-mapping path="/wxshare"/>
-			<mvc:exclude-mapping path="/sharecallBack"/>
-			<mvc:exclude-mapping path="/wxser"/>
-			<mvc:exclude-mapping path="/addphone"/>
-			<mvc:exclude-mapping path="/addUser"/>
-			<mvc:exclude-mapping path="/SendCodeSMS"/>
-			<mvc:exclude-mapping path="/CheckVcode"/>
-			<mvc:exclude-mapping path="/selectPhone"/>
-			  <mvc:exclude-mapping path="/notifyServlet"/>
-			  <mvc:exclude-mapping path="/money"/>
-			  <mvc:exclude-mapping path="/freeplay"/>
-			   <mvc:exclude-mapping path="/shareServlet"/>
-			   <mvc:exclude-mapping path="/wxfpser"/>
-			   <mvc:exclude-mapping path="/wxfpright"/>
-			   <mvc:exclude-mapping path="/wxfprighthobby"/>
-			 <mvc:exclude-mapping path="/selectHelpCode"/>
-			<mvc:exclude-mapping path="/addHelpCode"/>
-
-            <bean class="com.utils.TelephoneHandler"></bean>
-            
-            
-          
-        </mvc:interceptor>
+             <bean class="com.utils.TelephoneHandler"></bean>    
+       </mvc:interceptor>
 		
 		<mvc:interceptor>
-       
             <mvc:mapping path="/fpplay"/>
-           
-     
-            
-          
-			
             <bean class="com.utils.HelpCodeHandler"></bean>
         </mvc:interceptor>
+        
 	</mvc:interceptors>
   -->
 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
@@ -106,7 +91,6 @@
     <!-- 定义异常处理页面用来获取异常信息的变量名，也可不定义，默认名为exception --> 
     <property name="exceptionAttribute" value="ex"/>
     <!-- 定义需要特殊处理的异常，这是重要点 --> 
-    
 	</bean>
 	
 	<!-- 启动SpringMVC的注解功能 -->

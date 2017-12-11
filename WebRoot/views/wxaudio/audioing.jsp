@@ -32,16 +32,24 @@
 		<div class="audio_center">
 			<div class="audio_singer">
 				<div class="singerimg" >
-					<img src="http://localhost:8080/STK/cover/${bg }"" id="circle" class="anmiting"/>
+					<img src="http://www.shoutike.com/STK/cover/${bg }"" id="circle" class="anmiting"/>
 				</div>
 			</div>
-			<div class="audio_lrc scroll">
-				<ul>
-					<li></li>
-				</ul>
+			<div class="lrc_mask">
+				<div class="audio_lrc scroll">
+					<ul>
+						<li></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</section>
+	
+	<div class="sel_title">
+		<h5>${Title }</h5>
+		<h6>${itemvo.title}</h6>
+	</div>
+	
 	<div class="footer">
 		<div class="foot_con">
 	        <div class="process">
@@ -98,10 +106,10 @@
 <script type="text/javascript" src="<%=path%>/js/wxpublic.js"></script>
 <!--  <script type="text/javascript" src="<%=path%>/jscript/move.js"></script>-->
 <script type="text/javascript" src="<%=path%>/js/audio.js"></script>
-<script type="text/javascript" src="<%=path%>/js/stopscroll.js"></script>
+<!-- <script type="text/javascript" src="<%=path%>/js/stopscroll.js"></script> -->
 <script>
 //初始化加载背景图和唱片图片
-var backbg = 'http://localhost:8080/STK/cover/${bg}';
+var backbg = 'http://www.shoutike.com/STK/cover/${bg}';
 $('.bg').css('background','url("'+backbg+'") no-repeat center');
 $('.bg').css('background-size','cover');
 $('.bg').css('-webkit-background-size','cover');
@@ -111,7 +119,7 @@ lyric(ly);
 
 function lyric(lyric){
 	$('.audio_lrc ul').html('');
-	var lrc = lyric.split(',');
+	var lrc = lyric.split('，');
 	console.log(lrc,lrc.length);
     for (var i = 0; i < lrc.length; i++) {
         $('<li>').html(lrc[i]==''?'&nbsp':lrc[i]).appendTo($('.audio_lrc ul'));

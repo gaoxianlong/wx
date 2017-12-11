@@ -39,7 +39,6 @@ public class FpPlayController {
 	private VipService vipService;
 	@Autowired
 	private ZanService zanService;
-	
 	@Autowired
 	private ProlocutorService prolocutorService;
 	
@@ -62,10 +61,8 @@ public class FpPlayController {
 		
 		int ids = 0;
 		if(id ==null){
-			
 			//得到封面默认的第一个视频ID
 			for (int i = 0; i < lsvideo.size(); i++) {
-
 				ids = lsvideo.get(0).getID();
 			}
 			

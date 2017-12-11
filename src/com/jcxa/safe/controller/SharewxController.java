@@ -23,19 +23,15 @@ public class SharewxController {
 
 	protected Logger log = Logger.getLogger(SharewxController.class);
 
-	
-	
 	public static String getAccessToken() {  
 	    String access_token = "";  
 	    String grant_type = "client_credential";//获取access_token填写client_credential   
-	     //String AppId="wx585bd9f0557b5d92";//第三方用户唯一凭证  
-	    
+	    //String AppId="wx585bd9f0557b5d92";//第三方用户唯一凭证  
 	    //String secret="020e8787cf60ae39e20c78fd56389e9b";//第三方用户唯一凭证密钥，即appsecret   
 	    String AppId="wxa16c9081b82d8353";
 	    String secret="e4e082e8d1e590e62e6d915a15b8456a";
 	    //这个url链接地址和参数皆不能变  
 	    String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type="+grant_type+"&appid="+AppId+"&secret="+secret;  
-	       
 	    try {  
 	        URL urlGet = new URL(url);  
 	        HttpURLConnection http = (HttpURLConnection) urlGet.openConnection();  
@@ -60,8 +56,6 @@ public class SharewxController {
 	    }  
 	    return access_token;  
 	}  
-	
-	
 	
 	public static String getTicket(String access_token) {  
 	    String ticket = null;  
@@ -90,7 +84,6 @@ public class SharewxController {
 	    }  
 	    return ticket;  
 	}  
-	
 	
 	public static String SHA1(String decript) {  
 	    try {  
@@ -130,9 +123,6 @@ public class SharewxController {
 	    //3、时间戳和随机字符串  
 	    String noncestr = UUID.randomUUID().toString().replace("-", "").substring(0, 16);//随机字符串  
 	    String timestamp = String.valueOf(System.currentTimeMillis() / 1000);//时间戳  
-	      
-	   
-	      
 	    //4、获取url  
 	    String urll=url;  
 	    /*根据JSSDK上面的规则进行计算，这里比较简单，我就手动写啦 
@@ -146,10 +136,8 @@ public class SharewxController {
 	      
 	    //5、将参数排序并拼接字符串  
 	    String str = "jsapi_ticket="+jsapi_ticket+"&noncestr="+noncestr+"&timestamp="+timestamp+"&url="+urll;  
-	     
 	    //6、将字符串进行sha1加密  
 	    String signature =SHA1(str);  
-	  
 	    Shareentiy share =new Shareentiy();
 	    share.setAppId(AppId);
 	    share.setTimeStamp(timestamp);
@@ -157,12 +145,4 @@ public class SharewxController {
 	    share.setSignature(signature);
 	    return share;
 	}  
-	
-	
-	
-	
-	
-	
-
-
 }

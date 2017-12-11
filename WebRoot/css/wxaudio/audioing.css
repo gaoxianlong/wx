@@ -61,10 +61,9 @@ body {
   width: 1rem;
   height: 1rem;
   margin-left: 0.8rem;
-  background: url(../../img/icon/vipprop.png) no-repeat center;
-  background-size: 2.74rem 16.78rem;
-  -webkit-background-size: 2.74rem 16.78rem;
-  background-position: 0 -10.86rem;
+  background: url(../../img/audio/prevhome.png) no-repeat center;
+  background-size: 1rem 1rem;
+  -webkit-background-size: 1rem 1rem;
 }
 .header .prev_btn a {
   display: block;
@@ -73,18 +72,18 @@ body {
 }
 .section {
   width: 15rem;
-  height: 78%;
+  height: 11.5rem;
 }
 .section .audio_center {
   width: 15rem;
   height: 100%;
   position: relative;
-  padding-top: 1.4rem;
-  padding-bottom: 1rem;
+  padding-top: 0.9rem;
 }
 .section .audio_center .audio_singer {
   width: 15rem;
   height: 100%;
+  padding-top: 0.6rem;
 }
 .section .audio_center .audio_singer .singerimg {
   width: 8.4rem;
@@ -119,26 +118,55 @@ body {
   -ms-animation-play-state: paused;
   -o-animation-play-state: paused;
 }
-.section .audio_center .audio_lrc {
+.section .audio_center .lrc_mask {
   display: none;
   width: 15rem;
   height: 100%;
-  overflow: auto;
-  padding: 1rem;
-  padding-top: 0;
-  margin-top: -0.6rem;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.6) 15%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0.6) 85%, rgba(255, 255, 255, 0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.6) 15%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0.6) 85%, rgba(255, 255, 255, 0) 100%);
 }
-.section .audio_center .audio_lrc ul {
+.section .audio_center .lrc_mask .audio_lrc {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 0 1.5rem;
+}
+.section .audio_center .lrc_mask .audio_lrc ul {
   width: 100%;
   height: auto;
 }
-.section .audio_center .audio_lrc ul li {
+.section .audio_center .lrc_mask .audio_lrc ul li {
   width: 100%;
-  height: 1rem;
+  min-height: 1rem;
   line-height: 1rem;
   text-align: center;
   font-size: 0.56rem;
   color: #fff;
+}
+.sel_title {
+  width: 15rem;
+  height: 4.2rem;
+  padding-top: 1rem;
+  position: absolute;
+  left: 0;
+  bottom: 6.8rem;
+  z-index: 100;
+}
+.sel_title h5 {
+  height: 0.9rem;
+  line-height: 0.9rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.64rem;
+  margin-bottom: 0.4rem;
+}
+.sel_title h6 {
+  height: 0.8rem;
+  line-height: 0.8rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.56rem;
 }
 .footer {
   position: absolute;
@@ -222,10 +250,9 @@ body {
   bottom: 2.6rem;
   width: 1.12rem;
   height: 0.72rem;
-  background: url("../../img/icon/vipprop.png") no-repeat center;
-  -webkit-background-size: 2.74rem 16.78rem;
-  background-size: 2.74rem 16.78rem;
-  background-position: 0 -7.98rem;
+  background: url("../../img/audio/xj_icon.png") no-repeat center;
+  background-size: 1.12rem 0.72rem;
+  -webkit-background-size: 1.12rem 0.72rem;
 }
 .footer .foot_con .prev_btn {
   position: absolute;
@@ -233,10 +260,9 @@ body {
   bottom: 2.5rem;
   width: 1.04rem;
   height: 1.04rem;
-  background: url("../../img/icon/vipprop.png") no-repeat center;
-  -webkit-background-size: 2.74rem 16.78rem;
-  background-size: 2.74rem 16.78rem;
-  background-position: 0 -8.7rem;
+  background: url("../../img/audio/prev_btn.png") no-repeat center;
+  background-size: 1.04rem 1.04rem;
+  -webkit-background-size: 1.04rem 1.04rem;
 }
 .footer .foot_con .playing_btn {
   position: absolute;
@@ -245,10 +271,9 @@ body {
   margin-left: -1.02rem;
   width: 2.04rem;
   height: 2.04rem;
-  background: url("../../img/icon/vipprop.png") no-repeat center;
-  -webkit-background-size: 2.74rem 16.78rem;
-  background-size: 2.74rem 16.78rem;
-  background-position: 0 -13.98rem;
+  background: url("../../img/audio/play_stop.png") no-repeat center;
+  background-size: 2.04rem 2.04rem;
+  -webkit-background-size: 2.04rem 2.04rem;
 }
 .footer .foot_con .next_btn {
   position: absolute;
@@ -256,10 +281,9 @@ body {
   bottom: 2.5rem;
   width: 1.04rem;
   height: 1.04rem;
-  background: url("../../img/icon/vipprop.png") no-repeat center;
-  -webkit-background-size: 2.74rem 16.78rem;
-  background-size: 2.74rem 16.78rem;
-  background-position: 0 -9.78rem;
+  background: url("../../img/audio/next_btn.png") no-repeat center;
+  background-size: 1.04rem 1.04rem;
+  -webkit-background-size: 1.04rem 1.04rem;
 }
 .footer .foot_con .music_menu {
   position: absolute;
@@ -267,10 +291,9 @@ body {
   bottom: 2.6rem;
   width: 1.12rem;
   height: 0.72rem;
-  background: url("../../img/icon/vipprop.png") no-repeat center;
-  -webkit-background-size: 2.74rem 16.78rem;
-  background-size: 2.74rem 16.78rem;
-  background-position: 0 -7.26rem;
+  background: url("../../img/audio/lrcicon.png") no-repeat center;
+  background-size: 1.12rem 0.72rem;
+  -webkit-background-size: 1.12rem 0.72rem;
 }
 .mask_list {
   display: none;
@@ -344,10 +367,10 @@ body {
   color: #2ED92C;
 }
 .mask_list .mask_cose .list_con ul .audio_active a i {
-  background: url(../../img/icon/vipprop.png) no-repeat center;
-  background-size: 2.74rem 16.78rem;
-  -webkit-background-size: 2.74rem 16.78rem;
-  background-position: 0 -6.8rem;
+  background: url("../../img/audio/audioicon.png") no-repeat center;
+  background-size: 1.12rem 3.4rem;
+  -webkit-background-size: 1.12rem 3.4rem;
+  background-position: 0 -1.2rem;
 }
 .mask_list .mask_cose .lists_close {
   position: absolute;

@@ -81,10 +81,8 @@ public class ProlocutorController {
 			pr.setMoney(0);
 			
 			if(prolocutorService.profitold(uid)){
-				
 				prolocutorService.insertprofit(pr);
 			}
-			
 			
 			return "views/spokesman/wxspokesok.jsp";
 		
@@ -102,10 +100,8 @@ public class ProlocutorController {
 		 List<Users> userdaiyan=null;
 		 List<WxUser> wxuser=null;
 		 if(user != null){
-		
-	    String prolocutor=prolocutorService.selspro(user.getID());
-	    
-	    if(prolocutor != null){
+			 String prolocutor=prolocutorService.selspro(user.getID());
+	     if(prolocutor != null){
 	    	//
 	    	System.out.println("参数不为空");
 	    	Integer xiaidzhu=0;

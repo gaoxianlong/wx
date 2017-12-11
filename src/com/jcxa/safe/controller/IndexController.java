@@ -115,7 +115,7 @@ public class IndexController {
 			ids.add(297);
 			ids.add(298);
 			ids.add(309);
-			seriespublic=seriesService.selectfpseries(ids);
+			 seriespublic=seriesService.selectfpseries(ids);
 			 map.put("series", series);
 			 map.put("seriespublic", seriespublic);
 			
@@ -126,10 +126,10 @@ public class IndexController {
 				freetwo=seriesService.getfree("freetwo");
 				map.put("free", free);
 				map.put("freetwo", freetwo);
-			 map.put("prolocutorindex", prolocutorindex);
-			 map.put("menupoint", 1);
-			 map.put("school", 0);
-			 return "/xqindex.jsp";
+				map.put("prolocutorindex", prolocutorindex);
+				map.put("menupoint", 1);
+				map.put("school", 0);
+			return "/xqindex.jsp";
 			 
 		}
 	    
@@ -256,11 +256,9 @@ public class IndexController {
 			WxUser wxuser = (WxUser) session.getAttribute("wxuser");
 			String prolocutorindex="a";
 			
-			
 			if(user!=null){
 				//当用户不为null时 通过用户的id查询参数
 				prolocutorindex=prolocutorService.selspro(user.getID());
-				
 			}
 			if(!prolocutor.equals("a")){
 				System.out.println("我得参数不为a");
@@ -487,7 +485,6 @@ public class IndexController {
 			 map.put("school", 1);
 			 return "/index.jsp";
 			 
-		
 		}
 		
 

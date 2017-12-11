@@ -25,7 +25,6 @@
 		values
 		(#{uid},#{vip},#{vipsort},#{price},#{createTime},
 		#{exp},#{orderno},#{overtime},#{starda},#{outtradeno})
-
 	</insert>
 	
 	<insert id="addorder" parameterType="Order">
@@ -33,7 +32,6 @@
 		torder(OrderNO,UserID,SeriesID,Price,CreateTime,overtime,statu,outtradeno)
 		values
 		(#{OrderNO},#{UserID},#{SeriesID},#{Price},#{CreateTime},#{overtime},#{statu},#{outtradeno})
-
 	</insert>
 				
 	<delete id="deletevip" parameterType="int">

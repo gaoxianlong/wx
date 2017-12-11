@@ -25,27 +25,16 @@
 </head>
 <body>
 <div class="wx_wrap">
-	<div class="wx_topnav">
-		<div class="person">
-			<!--<a href="../wxmaterial.html">
-				<img src=""/>
-			</a>-->
-		</div>
-		<!--<div class="texts">教育扶贫专区</div>-->
-		<div class="member">
-			<a href="wxfpyzm.html">免费学习验证码</a>
-		</div>
-	</div>
+	
 	<div class="banner_wrap">
 		<div class="wx_banner">
 			<div class="banner_box">
 				<div class="banner_con">
 			        <div class="banner_list">
 			        	<a href="javascript:;">
-			        		<img src="<%=path%>/img/fp/fpbanner.png" />
+			        		<img src="<%=path%>/img/audio/mp.jpg" />
 			        	</a>
 			        </div>
-			        
 			    </div>
 			</div>
 		</div>

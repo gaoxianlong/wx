@@ -70,7 +70,6 @@ public class PlayController {
 				prolocutorplay=prolocutorService.selspro(user.getID());
 			}
 			
-	
 			
 			if(!prolocutor.equals("a")){
 				
@@ -127,7 +126,6 @@ public class PlayController {
 		//查询课程封面的信息
 		Series sers=playService.getplaySeries(seriesID);
 		
-		
 		log.info(sers.toString());
 		//是否是同步课程
 		String syn=sers.getSyn();
@@ -139,7 +137,6 @@ public class PlayController {
 		
 		if(syn.equals("sy")){
 			//同步课程
-			
 			
 			if(vipService.judvip(user.getID())){
 				
@@ -481,30 +478,28 @@ public class PlayController {
 			 maxsort = lsvideo.get(lsvideo.size() - 1).getSort();
 		}
 		
-		int nextsort = 0;
+			int nextsort = 0;
+			int nextid = 0;
+			
+			if(id != null){
+				
+				if (itemvo.getSort() < maxsort) {
+					nextsort = itemvo.getSort() + 1;
+				} else {
+					nextsort = maxsort;
+				}
+				Seriesvideo nextitemvo = orderService.selnext(seriesID, nextsort);
+				//得到下一个具体视频的ID
+				 nextid = nextitemvo.getID();	
+			}
+
+		//视频点赞
 		
-		int nextid = 0;
-if(id != null){
-	
-	if (itemvo.getSort() < maxsort) {
-		nextsort = itemvo.getSort() + 1;
-
-	} else {
-		nextsort = maxsort;
-	}
-	Seriesvideo nextitemvo = orderService.selnext(seriesID, nextsort);
-	//得到下一个具体视频的ID
-	 nextid = nextitemvo.getID();
-	
-}
-
-//视频点赞
-
-boolean flag = this.zanService.selectVideoService(user.getID(), vid);
-Integer voZan = this.zanService.selectZanVService(vid);
-System.out.println("视频点赞+++++++++" + voZan);
-map.put("voZan", voZan);
-map.put("flag", Boolean.valueOf(flag));
+		boolean flag = this.zanService.selectVideoService(user.getID(), vid);
+		Integer voZan = this.zanService.selectZanVService(vid);
+		System.out.println("视频点赞+++++++++" + voZan);
+		map.put("voZan", voZan);
+		map.put("flag", Boolean.valueOf(flag));
 		
 		//封面的Title
 		map.put("Title", Title);

@@ -55,9 +55,9 @@ public class OrderService {
 	}
 	
 	//得到具体视频的信息
-		public Seriesvideo playvideo(Integer id) {
-			return orderDao.playvideo(id);
-		}
+	public Seriesvideo playvideo(Integer id) {
+		return orderDao.playvideo(id);
+	}
 	
 	/*
 	 * 查询课程封面对应的视频

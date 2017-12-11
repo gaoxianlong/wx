@@ -45,7 +45,7 @@ public class TelephoneHandler implements HandlerInterceptor{
 //			return true;
 //		}
 		//截取url
-		url=url.substring(4);
+		url=url.substring(3);
 		HttpSession session=request.getSession();
 		url=url+"?"+par;
 		session.setAttribute("urlphone", url);
@@ -58,19 +58,13 @@ public class TelephoneHandler implements HandlerInterceptor{
 			// TODO: handle exception
 		}
 		 
-		
 		 if(users!=null&&openid !=0){
 			 return true;
 			}else {
 				System.out.println("电话号没有");
 				request.getRequestDispatcher("materphone.jsp").forward(request, response);
 				return false;
-			}
-		
-		
-
-		
-		
+			}	
 	}
 
 }

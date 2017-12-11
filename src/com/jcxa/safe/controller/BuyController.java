@@ -21,7 +21,6 @@ public class BuyController {
 		System.out.println("hello");
 		//查询课程封面的信息
 		Series sers=playService.getplaySeries(serid);
-	
 		map.put("ser", sers);
 		return "views/wxorder.jsp";
 		

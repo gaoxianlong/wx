@@ -77,12 +77,4 @@ public class TixianController {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
-	
-	
-
-
 }

@@ -29,7 +29,6 @@ public class TixianpayController {
 
 	protected Logger log = Logger.getLogger(TixianpayController.class);
 
-	
 	@Autowired
 	private PlayService playService;
 
@@ -52,7 +51,6 @@ public class TixianpayController {
 						String money = request.getParameter("pric");
 						String code = request.getParameter("code");
 						
-						
 						String desc="微信提现";
 						
 						//金额转化为分为单位
@@ -69,7 +67,6 @@ public class TixianpayController {
 						//10位序列号,可以自行调整。
 						String strReq = strTime + strRandom;
 						
-						
 						//商户号
 						String mch_id = partner;
 						//子商户号  非必输
@@ -78,7 +75,6 @@ public class TixianpayController {
 						String device_info="";
 						//随机数 
 						String nonce_str = strReq;
-						
 						
 						//商户订单号
 						String out_trade_no = orderNo;
@@ -143,9 +139,7 @@ public class TixianpayController {
 						} catch (Exception e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
-						}
-						
-		
+						}				
 	}
 	
 }

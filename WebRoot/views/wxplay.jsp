@@ -4,9 +4,7 @@
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-			
-			
+			+ path + "/";			
 %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -69,24 +67,12 @@
 	<!--播放列表-->
 	<div class="play_list">
 		<ul class="list">
-			<!--  
-			<li class="playering">
-				<a href="javascript:;">
-					<h6>第2集 乘法口诀表2段</h6>
-					<i>免费</i>
-				    <b></b>
-				</a>
-				
-			</li>
-			
-			-->
 			
 			<c:if test="${zhuanqu eq 'cost'}">
 			<c:forEach items="${lsvideo }" var="vo" varStatus="flag">
 			<li data-id="${playing }" value="${vo.ID }">
 				<a href="play?seriesID=${vo.SID }&id=${vo.ID }">
-					<h6>${vo.title }</h6>
-					
+					<h6>${vo.title }</h6>	
 				</a>
 			</li>
 			</c:forEach>
@@ -106,21 +92,15 @@
 			
 			<input id="nextUrl" name="nextUrl" type="hidden" value="play?seriesID=${itemvo.SID}&id=${nextid }&oldid=${itemvo.ID}" />
 		   
-			
-			
 			<c:forEach items="${videopay }" var="vo">
-			
-			<li class="notplaying">
-				<a href="javascript:;">
-					<h6>${vo.title }</h6>
-					<i></i>
-				    <b></b>
-				</a>
-			</li>
-			
-			</c:forEach>
-			
-			
+				<li class="notplaying">
+					<a href="javascript:;">
+						<h6>${vo.title }</h6>
+						<i></i>
+					    <b></b>
+					</a>
+				</li>
+			</c:forEach>	
 		</ul>
 	</div>
     <!--支付-->

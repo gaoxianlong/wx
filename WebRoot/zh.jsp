@@ -27,9 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  
  }
 </script>
-
-  </head>
-  
+</head>
   <body onload="selser()">
     <input type="hidden" value="191" id="id"/>
   </body>

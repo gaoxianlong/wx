@@ -5,7 +5,6 @@
 	
 	<!-- MP3 -->
 	<update id="ClickRatemp" parameterType="java.lang.Integer">
-		
        UPDATE mpseries SET ClickRate=ClickRate+1 WHERE ID = #{id}
 	</update>
 	
@@ -14,16 +13,11 @@
 	</select>
 	<!-- MP3 -->
 	
-	
-	
 	<select id="getplaySeries" resultType="Series">
-
 		select * from series where ID=#{seriesID}
-
 	</select>
 	
-	<update id="ClickRate" parameterType="java.lang.Integer">
-		
+	<update id="ClickRate" parameterType="java.lang.Integer">	
        UPDATE series SET ClickRate=ClickRate+1 WHERE ID = #{id}
 	</update>
 </mapper>

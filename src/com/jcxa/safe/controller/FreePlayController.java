@@ -47,7 +47,6 @@ public class FreePlayController {
 			@RequestParam(value = "id", required = false) Integer id,
 			@RequestParam(value="prolocutor",required = false,defaultValue="a") String prolocutor) {
 		
-		
 		playService.ClickRate(seriesID);
 		int vid=0;
 		
@@ -105,25 +104,18 @@ public class FreePlayController {
 						ps.setProlocutor(prolocutor);
 						ps.setOpenid(openid);
 						ps.setCreateTime(nowSql);
-						prolocutorService.adddaiyan(ps);
-						
+						prolocutorService.adddaiyan(ps);	
 						}
-			
 					}
-		
 				}
-
 			}
 		//
 		
 		lsvideo = orderService.getvideo(seriesID);
-		
 		int ids = 0;
 		if(id ==null){
-			
 			//得到封面默认的第一个视频ID
 			for (int i = 0; i < lsvideo.size(); i++) {
-
 				ids = lsvideo.get(0).getID();
 			}
 			
@@ -138,22 +130,21 @@ public class FreePlayController {
 				//得到每一个具体视频的信息
 				Seriesvideo itemvo = orderService.playvideo(vid);
 				//得到下一个具体视频的信息
-				
 				int maxsort = 0;
 				if(id != null){	
 					 maxsort = lsvideo.get(lsvideo.size() - 1).getSort();
 				}
 				int nextsort = 0;
 				int nextid = 0;
-		if(id != null){
-			if (itemvo.getSort() < maxsort) {
-				nextsort = itemvo.getSort() + 1;
-			} else {
-				nextsort = maxsort;
-			}
-			Seriesvideo nextitemvo = orderService.selnext(seriesID, nextsort);
-			//得到下一个具体视频的ID
-			 nextid = nextitemvo.getID();
+				if(id != null){
+					if (itemvo.getSort() < maxsort) {
+						nextsort = itemvo.getSort() + 1;
+					} else {
+						nextsort = maxsort;
+					}
+					Seriesvideo nextitemvo = orderService.selnext(seriesID, nextsort);
+					//得到下一个具体视频的ID
+					nextid = nextitemvo.getID();
 		}
 		//查询课程封面的信息
 		Series sers=playService.getplaySeries(seriesID);

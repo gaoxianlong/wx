@@ -52,12 +52,9 @@ public class huiwxController {
 	@Autowired
 	private VipService vipService;
 	
- 
-	
 	@RequestMapping(value="/notifyServlet")
-	
 	public void NotifyServlet(HttpServletRequest request,HttpServletResponse response,Map<String, Object> maps) throws IOException {
-		log.info("1111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
+		
 		BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
         String line = null;
         StringBuilder sb = new StringBuilder();
@@ -69,8 +66,6 @@ public class huiwxController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        System.out.println(sb+"0000");
-        
  
         Map<String,Object> map = new HashMap<String,Object>();  
         Document doc;  
@@ -109,9 +104,7 @@ public class huiwxController {
        String transaction_id=(String) map.get("transaction_id");
        String outtradeno=(String) map.get("out_trade_no");
        
-       
        String vpsort=null;
-       
        
        int ud = Integer.parseInt(uid);
        int serid = Integer.parseInt(seriesid);
@@ -155,8 +148,7 @@ public class huiwxController {
            //VIP是否存在
            if(vipService.judvip(ud)&&dat<ove){
         	  
-        	   System.out.println(dat+"999999999999999999999999999999999999999999999999999");
-        	   System.out.println(ove+"3333333333333333333333333333333333333333333333333");
+        	  
         	   
         	   String returnxml = "<xml>" +
                        "   <return_code><![CDATA[SUCCESS]]></return_code>" +
@@ -171,26 +163,18 @@ public class huiwxController {
         	   boolean tr=true;
         	   boolean tt=false;
         	   
-        	   System.out.println("7777777777777777777777777777777777777777");
-        	   
         	   tt=vipService.judvip(ud);
-        	   System.out.println("33333333333333333333333333333333333333333333333");
-        	   
-        	   System.out.println(tt+"22222222222222222222222222222222222222222222222");
+        	 
         	   if(tt){
         		   try {
         			   tr= vipService.deletevip(ud);
 				} catch (Exception e) {
 					// TODO: handle exception
-					
-					System.out.println("44444444444444444444444444444444444");
 					}
         	   	}
-        	   System.out.println("555555555555555555555555555555555");
-        	  System.out.println(tr+"66666666666666666666666666666");
-        	   if(tr){
+        	  
+        	if(tr){
         		   
-        	  System.out.println("true"+"0000000000000000000000000000000000000000000");
         	  Wxorder wo=new Wxorder();
         	  
         	  wo.setCreateTime(nowSql);
@@ -217,10 +201,7 @@ public class huiwxController {
                       "</xml>";
 
               response.getWriter().write(returnxml);
-              response.getWriter().flush();
-              
-        	  
-        	   
+              response.getWriter().flush();  
       			}else{
       				 String returnxml = "<xml>" +
       	                      "   <return_code><![CDATA[SUCCESS]]></return_code>" +
@@ -259,12 +240,7 @@ public class huiwxController {
         	   return;
         	      
            }else{
-        	   if(vipService.getoornotnull(ud,serid)&&dat<ove){
-        		   System.out.println(dat+"111111111111111111111111111111111111111111111111111111111111111111111111");
-            	   System.out.println(ove+"5555555555555555555555555555555555555555555555555555555555555555555555555");  
-            	   
-            	   
-            	   
+        	   if(vipService.getoornotnull(ud,serid)&&dat<ove){ 
             	   String returnxml = "<xml>" +
                            "   <return_code><![CDATA[SUCCESS]]></return_code>" +
                            "   <return_msg><![CDATA[OK]]></return_msg>" +

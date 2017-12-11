@@ -22,7 +22,6 @@ public interface SeriesDao {
 		public List<Type> wxgetMulvsanmp(Integer id);
 		//MP3
 	
-	
 	    //根据传入的二级id值取出对应的课程封面
 		public List<Series> getSerieser(Integer id);
 		public List<Series> getSerieserxq(Integer id);

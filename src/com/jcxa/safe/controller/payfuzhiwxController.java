@@ -35,14 +35,11 @@ public class payfuzhiwxController {
 	@Autowired
 	private PlayService playService;
 
-	
 	@RequestMapping(value="/topayServletfuzhi")
 	@ResponseBody
 	public void topayServletfuzhi(HttpServletRequest request,HttpServletResponse response
 			) {
 	
-		
-		
 				//网页授权后获取传递的参数
 				String userId = request.getParameter("userId"); 	
 				String orderNo = request.getParameter("orderNo"); 

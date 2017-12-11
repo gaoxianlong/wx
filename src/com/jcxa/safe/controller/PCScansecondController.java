@@ -35,14 +35,11 @@ public class PCScansecondController {
 	@Autowired
 	private PlayService playService;
 
-	
 	@RequestMapping(value="/PCScansecondServlet")
 	@ResponseBody
 	public void topayServlet(HttpServletRequest request,HttpServletResponse response
 			) {
 	
-		
-		
 				//网页授权后获取传递的参数
 				String userId = request.getParameter("userId"); 	
 				String orderNo = request.getParameter("orderNo"); 
