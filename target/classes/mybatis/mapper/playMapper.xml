@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.jcxa.safe.dao.PlayDao">
+	
+	<!-- MP3 -->
+	<update id="ClickRatemp" parameterType="java.lang.Integer">
+       UPDATE mpseries SET ClickRate=ClickRate+1 WHERE ID = #{id}
+	</update>
+	
+	<select id="getplaySeriesmp" resultType="Seriesmp">
+		select * from mpseries where ID=#{seriesID}
+	</select>
+	<!-- MP3 -->
+	
+	<select id="getplaySeries" resultType="Series">
+		select * from series where ID=#{seriesID}
+	</select>
+	
+	<update id="ClickRate" parameterType="java.lang.Integer">	
+       UPDATE series SET ClickRate=ClickRate+1 WHERE ID = #{id}
+	</update>
+</mapper>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.jcxa.safe.dao.SeriesDao">
+
+<!-- MP3 -->
+	<!-- total -->
+	<select id="getSeriesermptotal" resultType="Seriesmp">
+		select * from mpseries
+	</select>
+	
+	<select id="getSeriesermpyi" resultType="Seriesmp">
+		select * from mpseries where TypeValue=#{id}
+	</select>
+	
+	<select id="getSeriesermper" resultType="Seriesmp">
+		select * from mpseries where Type2Value=#{id}
+	</select>
+	
+	<select id="seltypename" resultType="java.lang.String">
+		select TypeName from mptype where id=#{id}
+	</select>
+	
+	<select id="wxgetMulvsanmp" resultType="Type">
+		select * from mptype where ParentID=#{id} order by layered asc
+	</select>
+
+<!-- MP3 -->
+
+  	<select id="getSerieser" resultType="Series">
+		select * from series where Type2Value=#{id}
+	</select>
+	
+	<select id="getSerieserxq" resultType="Series">
+		select * from series where TypeValue=#{id}
+	</select>
+	
+	<select id="gethobby" resultType="Series">
+		select * from series where syn=#{syn}
+	</select>
+	
+	<select id="getfree" resultType="Series">
+		select * from series where free=#{free}
+	</select>
+	
+	<select id="selectfpseries" parameterType="java.util.List" resultType="Series">
+        SELECT * FROM series
+        WHERE Type2Value IN
+        <foreach collection="ls" index="index" item="item"
+            open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+	<select id="wxgetMulvsan" resultType="Type">
+		select * from type where ParentID=#{id} order by layered asc
+	</select>
+	
+	<select id="getSeriessan" resultType="Series">
+		select * from series where Type3Value=#{id}
+	</select>
+	
+	<select id="rightname" resultType="java.lang.String">
+		select TypeName from type where ID=#{id}
+	</select>
+</mapper>

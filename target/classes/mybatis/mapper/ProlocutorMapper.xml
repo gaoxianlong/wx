@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.jcxa.safe.dao.ProlocutorDao">
+
+<!-- 通过WXopendID查询prolocutor -->
+	<select id="wxprolocutor" resultType="java.lang.String">
+		select prolocutor from tuser where WXopendID=#{WXopendID}
+	</select>
+<!-- 根据代言码查询自己的WXopenid -->
+	<select id="selproopenidd" resultType="java.lang.Integer">
+		select WXopendID from tuser where prolocutor=#{prolocutor}
+	</select>
+<!--  根据user的WXopenid查询wxuser的Openid-->
+   <select id="wxuseropenidd" resultType="java.lang.String">
+		select openid from twxuser where ID=#{ID}
+	</select>
+	
+	<select id="openidsel" resultType="java.lang.Integer">
+		select ID from tuser where WXopendID=#{openid}
+	</select>
+<!-- 通过openid查询主键ID -->
+	<select id="openidzhu" resultType="java.lang.Integer">
+		select ID from twxuser where openid=#{openid}
+	</select>
+<!-- 提现 -->
+	<insert id="tixianmoney" parameterType="Tixian">
+		insert into tixian(uid,money,name,addtimes)
+		values
+		(#{uid},#{money},#{name},#{addtimes})
+	</insert>
+
+	<select id="onlydaiyan" resultType="Prolocutor">
+		select * from prolocutor where openid=#{openid}
+	</select>
+
+    <insert id="adddaiyan" parameterType="Prolocutor">
+		insert into prolocutor(prolocutor,openid,createTime)
+		values
+		(#{prolocutor},#{openid},#{createTime})
+	</insert>
+	
+	<select id="seldaiyan" resultType="java.lang.String">
+		select prolocutor from tuser where ID=#{ID}
+	</select>
+	
+	<update id="become" parameterType="User">
+		update tuser set
+		prolocutor=#{prolocutor}
+		where ID=#{ID}
+	</update>
+	
+	<update id="nowdaiyatime" parameterType="User">
+		update tuser set
+		nowdaiyatime=#{nowdaiyatime}
+		where ID=#{ID}
+	</update>
+	
+	<select id="selxiaxian" resultType="Prolocutor" parameterType="java.lang.String">
+		select * from prolocutor where prolocutor=#{prolocutor}
+	</select>
+	
+	<select id="seluserdaiyan" parameterType="java.util.List" resultType="User">
+        SELECT * FROM tuser
+        WHERE ID IN
+        <foreach collection="ls" index="index" item="item"
+            open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    
+   <select id="moneyorder" resultType="java.lang.Integer" >
+		SELECT SUM(Price) FROM torder WHERE UserID=#{ID} AND TO_DAYS(NOW()) <![CDATA[ - ]]>  TO_DAYS(CreateTime) <![CDATA[ >= ]]>  2
+	</select>
+	
+	<select id="moneyvip" resultType="java.lang.Integer" >
+		SELECT SUM(price) FROM wxorder WHERE uid=#{ID} AND TO_DAYS(NOW()) <![CDATA[ - ]]> TO_DAYS(createTime) <![CDATA[ >= ]]>  2
+	</select>
+		 
+	<select id="notmoneyorder" resultType="java.lang.Integer" >
+		
+		SELECT SUM(Price) FROM torder WHERE UserID=#{ID} AND TO_DAYS(NOW()) <![CDATA[ - ]]> TO_DAYS(CreateTime) <![CDATA[ <= ]]>  2
+	</select>
+ 
+	<select id="notmoneyvip" resultType="java.lang.Integer" >
+		SELECT SUM(price) FROM wxorder WHERE uid=#{ID} AND TO_DAYS(NOW()) <![CDATA[ - ]]> TO_DAYS(createTime) <![CDATA[ <= ]]>  2
+	</select>
+	
+	<select id="selper" resultType="Percentage" >
+		SELECT * FROM percentage WHERE id=1
+	</select>
+	
+	<select id="selprofit" resultType="java.lang.Integer" >
+		SELECT money FROM profit WHERE uid=#{ID}
+	</select>
+	<select id="profitold" resultType="Profit" >
+		SELECT * FROM profit WHERE uid=#{ID}
+	</select>
+	
+	<insert id="insertprofit" parameterType="Profit" >
+		INSERT INTO profit (uid,money) values (#{uid},#{money})
+	</insert>
+	
+	<update id="updateprofit" parameterType="Profit" >
+		update profit set money=#{money} 
+		where uid=#{uid}
+	</update>
+	
+	<select id="selproid" resultType="java.lang.Integer" >
+		SELECT ID FROM tuser WHERE prolocutor=#{prolocutor}
+	</select>
+	
+	<select id="selspro" resultType="java.lang.String" >
+		SELECT prolocutor FROM tuser WHERE ID=#{ID}
+	</select>
+	
+	<select id="selectWxUser" parameterType="java.util.List" resultType="WxUser">
+        SELECT * FROM twxuser
+        WHERE ID=#{ID}
+    </select>
+</mapper>

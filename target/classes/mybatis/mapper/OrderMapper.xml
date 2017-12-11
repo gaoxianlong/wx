@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.jcxa.safe.dao.OrderDao">
+<!-- MP3 -->
+
+	<select id="getrecordmp" resultType="Playrecord">
+		select * from mpplayrecord where uid=#{uid} and vid=#{vid}
+	</select>
+	
+	<insert id="addrecordmp" parameterType="Playrecord">
+		insert into mpplayrecord(uid,vid,addtimes) values (#{uid},#{vid},#{addtimes}) 
+    </insert>
+
+	<select id="playvideomp" resultType="Seriesvideo">
+		select * from mpseriesvideo where ID=#{id}
+	</select>
+	
+	<select id="selnextmp" resultType="Seriesvideo">
+		select * from mpseriesvideo where SID=#{seriesID} and Sort=#{sort}
+	</select>
+	
+	<select id="getvideomp" resultType="Seriesvideo">
+		select * from mpseriesvideo where SID=#{seriesID} order by Sort asc
+	</select>
+	
+<!-- MP3 -->
+	<select id="getorderserid" resultType="Order">
+		select * from torder where UserID=#{userID} and SeriesID=#{seriesID}
+	</select>
+
+    <select id="getvideo" resultType="Seriesvideo">
+		select * from seriesvideo where SID=#{seriesID} order by Sort asc
+	</select>
+	
+	<select id="playvideo" resultType="Seriesvideo">
+		select * from seriesvideo where ID=#{id}
+	</select>
+	
+	<select id="selnext" resultType="Seriesvideo">
+		select * from seriesvideo where SID=#{seriesID} and Sort=#{sort}
+	</select>
+	
+	<select id="videofree" resultType="Seriesvideo">
+		select * from seriesvideo where SID=#{seriesID} and IsPrice=0 order by Sort asc
+	</select>
+	
+	<select id="videopay" resultType="Seriesvideo">
+		select * from seriesvideo where SID=#{seriesID} and IsPrice=1 order by Sort asc
+	</select>
+	
+    <select id="selmaxsort" resultType="int">
+		select max(Sort) from seriesvideo where SID=#{seriesID}
+	</select>
+	
+	<select id="getrecord" resultType="Playrecord">
+		select * from playrecord where uid=#{uid} and vid=#{vid}
+	</select>
+	
+	<insert id="addrecord" parameterType="Playrecord">
+		insert into playrecord(uid,vid,addtimes) values (#{uid},#{vid},#{addtimes}) 
+    </insert>
+</mapper>

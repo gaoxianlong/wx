@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.jcxa.safe.dao.VipDao">
+<!-- 判断订单是否已存在 -->
+	<select id="getwxorder" resultType="Wxorder">
+		select * from wxorder where uid=#{uid}
+	</select>
+	<select id="getpuorder" resultType="Order">
+		select * from torder where statu=#{statu}
+	</select>
+
+	<select id="getoor" resultType="Order">
+		select * from torder where UserID=#{uid} and SeriesID=#{seid}
+	</select>
+	
+<!-- 判断用户手机号是否已存在 -->
+	<select id="getTephone" resultType="string">
+		select Telephone from tuser where ID=#{ID} 
+	</select>
+	
+    <insert id="addvip" parameterType="Wxorder">
+		insert into
+		wxorder(uid,vip,vipsort,price,createTime,exp,orderno,overtime,starda,outtradeno)
+		values
+		(#{uid},#{vip},#{vipsort},#{price},#{createTime},
+		#{exp},#{orderno},#{overtime},#{starda},#{outtradeno})
+	</insert>
+	
+	<insert id="addorder" parameterType="Order">
+		insert into
+		torder(OrderNO,UserID,SeriesID,Price,CreateTime,overtime,statu,outtradeno)
+		values
+		(#{OrderNO},#{UserID},#{SeriesID},#{Price},#{CreateTime},#{overtime},#{statu},#{outtradeno})
+	</insert>
+				
+	<delete id="deletevip" parameterType="int">
+        delete from wxorder where uid=#{id}
+    </delete>
+    
+    <delete id="deleteorder" parameterType="int">
+        delete from torder where UserID=#{id}
+    </delete>
+	
+</mapper>
