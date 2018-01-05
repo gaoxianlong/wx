@@ -19,7 +19,7 @@
 	<context:component-scan base-package="com.jcxa.safe" use-default-filters="false">
 	 <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
- <!--  
+  
 	<mvc:interceptors>
 		<mvc:interceptor>
          	 <mvc:mapping path="/**"/>
@@ -84,11 +84,15 @@
         </mvc:interceptor>
         
 	</mvc:interceptors>
- -->
-  
-  
 	
-	
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	     <!-- 定义默认的异常处理页面 -->
+	    <property name="defaultErrorView" value="/test.jsp"/> 
+	    <!-- 定义异常处理页面用来获取异常信息的变量名，也可不定义，默认名为exception --> 
+	    <property name="exceptionAttribute" value="ex"/>
+	    <!-- 定义需要特殊处理的异常，这是重要点 --> 
+	</bean>
+  
 	<!-- 启动SpringMVC的注解功能 -->
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<mvc:default-servlet-handler/>
