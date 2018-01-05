@@ -204,7 +204,7 @@ $(function(){
                   title: '手提课-活到老学到老',  
                   desc: '${Title}',  
                   link: urll,  
-                  imgUrl: 'http://www.shoutike.com/wx/img/share.jpg',  
+                  imgUrl: 'https://www.shoutike.com/wx/img/share.jpg',  
                   trigger: function (res) {  
                     //alert('用户点击发送给朋友');  
                   },  
@@ -226,7 +226,7 @@ $(function(){
             	  title: '手提课-活到老学到老,${Title}',  
                   desc: '',  
                   link: urll,  
-                  imgUrl: 'http://www.shoutike.com/wx/img/share.jpg',  
+                  imgUrl: 'https://www.shoutike.com/wx/img/share.jpg',  
                   trigger: function (res) {  
                     //alert('用户点击分享到朋友圈');  
                   },  

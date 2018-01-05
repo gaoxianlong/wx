@@ -9,6 +9,7 @@
 %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,61 +24,55 @@
 </head>
 <body>
 <div class="wx_wrap">
+	<!-- 修改 201815-->
 	<div class="myspoke">
 		<div class="myimg">
-			<c:if test="${empty user.headUrl}">
-				<p><img src="${wxuser.headUrl}"/></p>
-				</c:if>
-				<c:if test="${!empty user.headUrl}">
-				<p><img src="${user.headUrl}"/></p>
-				</c:if>
-			<h3>${name }</h3>
+			<div class="imgicon">
+					<c:if test="${empty user.headUrl}">
+						<p> <img src="${wxuser.headUrl}"/> </p>
+					</c:if>
+					<c:if test="${!empty user.headUrl}">
+						<c:if test="${fn:containsIgnoreCase(user.headUrl, 'http')}">
+							<p> <img src="${user.headUrl}"/> </p >
+						</c:if>
+						<c:if test="${fn:containsIgnoreCase(user.headUrl, 'userhadle')}">
+							<p><img src="https://www.shoutike.com/${user.headUrl}"/> </p >
+						</c:if>
+					</c:if>
+				
+				
+			   		<h3 class="ellipsis">${name }</h3>
+			    	<c:if test="${prolocutor ne 'a'}">
+			    	<a href="javascript:;"> 已成为代言人</a>
+			    	</c:if>
+			 		<c:if test="${prolocutor eq 'a'}">
+			    		<a href="<%=path%>/views/spokesman/wxspokephone.jsp">立即成为代言人</a>
+			   		</c:if>
+			</div>
+			<div class="txok">
+				<p>可提现收益（元）</p >
+				<h5 class="cash">￥${alow}</h5>
+			</div>
+			<div class="txover">
+				<div class="txleft">
+					<p>暂不可提现收益</p>
+					<p>￥${noo}</p>
+				</div>
+				<div class="txright">
+					<p>已提现收益</p>
+					<p>￥${money}</p>
+				</div>
+			</div>
 		</div>
-	    <div class="notspoke">
 	    
-	   
-	   
-	  <c:if test="${prolocutor ne 'a'}">
-	    
-	    	
-		    	<b>已成为代言人</b>
-		    	<i></i>
-	    	
-	    	
-	    	</c:if>
-	    	
-	    	
-	    	 <c:if test="${prolocutor eq 'a'}">
-	    <a href="<%=path%>/views/spokesman/wxspokephone.jsp">
-	    	
-		    	<b>立即成为代言人</b>
-		    	<i></i>
-	    </a>
-	    	 
-	    	</c:if>
-	    	
-	    </div>   
+	    <div class="mysyxq">
+			<div class="nowtx" id="mytx">立即提现</div>
+			<div class="mydd" id="txorder"><a href="<%=path%>/proordercourse">订单明细</a></div>
+		</div>
+		
 	</div>
-	<div class="mysyxq">
-		<div class="xqleft">
-			<p>可提现收益</p>
-			<p class="cash">￥${alow}</p>
-		</div>
-		<div class="xqright" id="mytx" data-onoff="true">
-			<span>立即去提现</span>
-		    <i></i>
-		</div>
-	</div>
-	<div class="mysyxq">
-		<div class="xqleft">
-			<p>暂不可提现收益</p>
-			<p>￥${noo}</p>
-		</div>
-		<div class="xqright">
-			<p>已提现收益</p>
-			<p>￥${money}</p>
-		</div>
-	</div>
+	
+	<!-- 修改 201815-->
 	<div class="spokelist">
 		<ul>
 			<li>
@@ -123,9 +118,7 @@
     			<i class="nav_icon"><b></b></i>
     			<span>个人中心</span>
     		</a>
-    		
     	</div>
-    	
     </footer>
 
 </div>	

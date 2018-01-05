@@ -11,8 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
-<title>手提课-活到老学到老</title>
+<title>手提课</title>
 <meta http-equiv="content-type" content="text/htm" charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" type="text/css" href="<%=path%>/css/wxpublic/wxpublic.css"/>
@@ -24,7 +23,7 @@
 <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </head>
 <body>
-<div class="wx_wrap">
+<div class="wx_wrap" style="padding-top:0;">
 	
 	<div class="banner_wrap">
 		<div class="wx_banner">
@@ -86,7 +85,7 @@
 		<div class="items">
 			<a href="mpplay?seriesID=${ser.ID }">
 				<div class="audio_img">
-					<img src="http://www.shoutike.com/cover/${ser.picURL }" alt="" />
+					<img src="https://www.shoutike.com/cover/${ser.picURL }" alt="" />
 				</div>
 				<div class="audio_xq">
 					<h5 class="ellipsis">${ser.title }</h5>
@@ -200,8 +199,8 @@ $(function(){
             wx.onMenuShareAppMessage({  
                   title: '手提课-活到老学到老',  
                   desc: '课程“短小精练 ，生动有趣”。满足“课前预习，课后复习”。', 
-                  link: 'http://www.shoutike.com/wx/wxmp?id=189&prolocutor=${prolocutorindex }',  
-                  imgUrl: 'http://www.shoutike.com/wx/img/share.jpg',  
+                  link: 'https://www.shoutike.com/wx/wxmp?id=189&prolocutor=${prolocutorindex }',  
+                  imgUrl: 'https://www.shoutike.com/wx/img/share.jpg',  
                   trigger: function (res) {  
                     //alert('用户点击发送给朋友');  
                   },  
@@ -222,8 +221,8 @@ $(function(){
               wx.onMenuShareTimeline({  
             	  title: '手提课-活到老学到老',  
                  desc: '课程“短小精练，生动有趣”。满足“课前预习，课后复习”。', 
-                  link: 'http://www.shoutike.com/wx/wxmp?id=189&prolocutor=${prolocutorindex }',  
-                  imgUrl: 'http://www.shoutike.com/wx/img/share.jpg',  
+                  link: 'https://www.shoutike.com/wx/wxmp?id=189&prolocutor=${prolocutorindex }',  
+                  imgUrl: 'https://www.shoutike.com/wx/img/share.jpg',  
                   trigger: function (res) {  
                     //alert('用户点击分享到朋友圈');  
                   },  

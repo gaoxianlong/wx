@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>手提课-活到老学到老</title>
+<title>手提课</title>
 <meta http-equiv="content-type" content="text/htm" charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" type="text/css" href="<%=path%>/css/wxpublic/wxpublic.css"/>
@@ -132,7 +132,7 @@
 		<div class="kc_item">
 			<a href="<%=path%>/fpplay?seriesID=${ser.ID }">
 				<div class="kc_img">
-					<img class="lazy" data-original="http://www.shoutike.com/cover/${ser.picURL }" src="<%=path%>/img/xiaoshou.png"/>
+					<img class="lazy" data-original="https://www.shoutike.com/cover/${ser.picURL }" src="<%=path%>/img/xiaoshou.png"/>
 				</div>
 				<div class="kc_xq">
 					<h5 class="ellipsis">${ser.title }</h5>
@@ -158,7 +158,7 @@
 		<div class="kc_item">
 			<a href="<%=path%>/fpplay?seriesID=${ser.ID }">
 				<div class="kc_img">
-					<img class="lazy" data-original="http://www.shoutike.com/cover/${ser.picURL }" src="<%=path%>/img/xiaoshou.png"/>
+					<img class="lazy" data-original="https://www.shoutike.com/cover/${ser.picURL }" src="<%=path%>/img/xiaoshou.png"/>
 				</div>
 				<div class="kc_xq">
 					<h5 class="ellipsis">${ser.title }</h5>
@@ -309,8 +309,8 @@ $(function(){
             wx.onMenuShareAppMessage({  
                   title: '手提课-活到老学到老',  
                   desc: '课程“短小精练，生动有趣”。满足“课前预习，课后复习”。', 
-                  link: 'http://www.shoutike.com/wx/wxfpser?id=191&prolocutor=${prolocutorindex }',  
-                  imgUrl: 'http://www.shoutike.com/wx/img/share.jpg',  
+                  link: 'https://www.shoutike.com/wx/wxfpser?id=191&prolocutor=${prolocutorindex }',  
+                  imgUrl: 'https://www.shoutike.com/wx/img/share.jpg',  
                   trigger: function (res) {  
                     //alert('用户点击发送给朋友');  
                   },  
@@ -331,8 +331,8 @@ $(function(){
               wx.onMenuShareTimeline({  
             	  title: '手提课-活到老学到老',  
                  desc: '课程“短小精练 ，生动有趣”。满足“课前预习，课后复习”。', 
-                  link: 'http://www.shoutike.com/wx/wxfpser?id=191&prolocutor=${prolocutorindex }',  
-                  imgUrl: 'http://www.shoutike.com/wx/img/share.jpg',  
+                  link: 'https://www.shoutike.com/wx/wxfpser?id=191&prolocutor=${prolocutorindex }',  
+                  imgUrl: 'https://www.shoutike.com/wx/img/share.jpg',  
                   trigger: function (res) {  
                     //alert('用户点击分享到朋友圈');  
                   },  

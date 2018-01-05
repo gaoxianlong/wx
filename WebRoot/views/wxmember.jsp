@@ -36,7 +36,7 @@
  				
 	            if(res.err_msg == "get_brand_wcpay_request:ok"){ 
 	           // alert("用户成功支付!"); 
-	              window.location.href="http://www.shoutike.com/wx/index.jsp"; 
+	              window.location.href="https://www.shoutike.com/wx/index.jsp"; 
 	            }else if(res.err_msg == "get_brand_wcpay_request:cancel"){  
 	                alert("用户取消支付!");  
 	           }else{  

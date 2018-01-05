@@ -15,6 +15,7 @@ import com.jcxa.safe.entity.Prolocutor;
 import com.jcxa.safe.entity.Tixian;
 import com.jcxa.safe.entity.Users;
 import com.jcxa.safe.entity.WxUser;
+import com.jcxa.safe.entity.OrderandSeries;
 
 
 @Service
@@ -144,4 +145,8 @@ public class ProlocutorService {
 		return prolocutorDao.selproid(prolocutor);
 	}
 
+	//查询用户自己单个购买的课程订单
+	public List<OrderandSeries> selorderandk(Integer id){
+		return prolocutorDao.selorderandk(id);
+	}
 }

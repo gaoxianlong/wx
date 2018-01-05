@@ -58,7 +58,7 @@ public class wxController {
 					String uidd = String.valueOf(idd);
 					//共账号及商户相关参数
 					String appid = "wx1d42fa2fba520d22";
-					String backUri = "http://www.shoutike.com/wx/topayServlet";
+					String backUri = "https://www.shoutike.com/wx/topayServlet";
 					String price=pric;
 					//String price="1.00";
 					String uid=uidd; 

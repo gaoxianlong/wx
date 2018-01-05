@@ -48,7 +48,7 @@
 				<h2>商品信息</h2>
 				<div class="wxkc_xq">
 					<dl>
-						<dt><img src="http://www.shoutike.com/cover/<%=ur%>"/></dt>
+						<dt><img src="https://www.shoutike.com/cover/<%=ur%>"/></dt>
 						<dd>
 							<h5><%=title%></h5>
 							<p>￥<%=pi%> <em>有效期三个月</em></p>

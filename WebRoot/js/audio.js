@@ -200,16 +200,16 @@ $('.music_menu').on('click',function(){
 $('.loop').on('click',function(){
 	$('.footer').hide();
 //	$('.mask_list').slideDown();
+  $('.sel_title').hide();
 	$('.mask_list').show();
-	$('.sel_title').hide();
 	
 });
 //选集菜单关闭
 $('.lists_close').on('click',function(){
 	$('.footer').show();
 //	$('.mask_list').slideUp();
+  $('.sel_title').show();
 	$('.mask_list').hide();
-	$('.sel_title').show();
 });
 
 //分钟转化成秒

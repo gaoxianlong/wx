@@ -107,8 +107,8 @@ $(function(){
             wx.onMenuShareAppMessage({  
                   title: '手提课-活到老学到老',  
                   desc: '<%=name%>',  
-                  link: 'http://www.shoutike.com/wx/views/aboutplay.jsp?url=<%=url%>&a=<%=a%>',  
-                  imgUrl: 'http://www.shoutike.com/wx/img/share.jpg',  
+                  link: 'https://www.shoutike.com/wx/views/aboutplay.jsp?url=<%=url%>&a=<%=a%>',  
+                  imgUrl: 'https://www.shoutike.com/wx/img/share.jpg',  
                   trigger: function (res) {  
                     //alert('用户点击发送给朋友');  
                   },  
@@ -129,8 +129,8 @@ $(function(){
               wx.onMenuShareTimeline({  
             	  title: '手提课-活到老学到老',  
                   desc: '<%=name%>',  
-                  link: 'http://www.shoutike.com/wx/views/aboutplay.jsp?url=<%=url%>&a=<%=a%>',  
-                  imgUrl: 'http://www.shoutike.com/wx/img/share.jpg',  
+                  link: 'https://www.shoutike.com/wx/views/aboutplay.jsp?url=<%=url%>&a=<%=a%>',  
+                  imgUrl: 'https://www.shoutike.com/wx/img/share.jpg',  
                   trigger: function (res) {  
                     //alert('用户点击分享到朋友圈');  
                   },  

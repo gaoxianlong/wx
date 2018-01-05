@@ -29,7 +29,12 @@
 		<div class="person">	
 		</div>
 		<div class="member">
-			<a href="views/wxmember.jsp">成为VIP</a>
+			<c:if test="${vp == 0 }">
+				<a href="views/wxmember.jsp">成为VIP</a>
+			</c:if>
+			<c:if test="${vp == 1 }">
+				<a href="javscript:;">我的VIP</a>
+			</c:if>
 		</div>
 	</div>
 	<div class="banner_wrap">
@@ -70,7 +75,7 @@
 				<div class="kc_item">
 					<a href="freeplay?seriesID=${ser.ID }">
 						<div class="kc_img">
-							<img src="http://www.shoutike.com/cover/${ser.picURL }" />
+							<img src="https://www.shoutike.com/cover/${ser.picURL }" />
 						</div>
 						<div class="kc_xq">
 							<h5 class="ellipsis">${ser.title }</h5>
@@ -94,7 +99,7 @@
 				<div class="kc_item">
 					<a href="freeplay?seriesID=${ser.ID }">
 						<div class="kc_img">
-							<img src="http://www.shoutike.com/cover/${ser.picURL }" />
+							<img src="https://www.shoutike.com/cover/${ser.picURL }" />
 						</div>
 						<div class="kc_xq">
 							<h5 class="ellipsis">${ser.title }</h5>
@@ -185,7 +190,7 @@
 				<li class="navss"><a href="wxindexrighthobby?id=${point }&erid=297&sorid=1&pointding=3" data-id="${pointsan }" value="297">绘画</a></li>
 				<li class="navss"><a href="wxindexrighthobby?id=${point }&erid=298&sorid=1&pointding=4" data-id="${pointsan }" value="298">记忆法</a></li>
 				<li class="navss"><a href="wxindexrighthobby?id=${point }&erid=309&sorid=1&pointding=5" data-id="${pointsan }" value="309">国学</a></li>
-				<li class="navss"><a href="wxindexrighthobby?id=${point }&erid=189&sorid=1&pointding=6" data-id="${pointsan }" value="189">古诗词</a></li>
+				<li class="navss"><a href="wxindexrighthobby?id=${point }&erid=304&sorid=1&pointding=6" data-id="${pointsan }" value="304">古诗词</a></li>
 				</ul>
 			</div>
 		</div>
@@ -197,7 +202,7 @@
 		<div class="kc_item">
 			<a href="play?seriesID=${ser.ID }">
 				<div class="kc_img">
-					<img class="lazy" data-original="http://www.shoutike.com/cover/${ser.picURL }" src="img/xiaoshou.png"/>
+					<img class="lazy" data-original="https://www.shoutike.com/cover/${ser.picURL }" src="img/xiaoshou.png"/>
 				</div>
 				<div class="kc_xq">
 					<h5 class="ellipsis">${ser.title }</h5>
@@ -219,7 +224,7 @@
 		<div class="kc_item">
 			<a href="play?seriesID=${ser.ID }">
 				<div class="kc_img">
-					<img class="lazy" data-original="http://www.shoutike.com/cover/${ser.picURL }" src="img/xiaoshou.png"/>
+					<img class="lazy" data-original="https://www.shoutike.com/cover/${ser.picURL }" src="img/xiaoshou.png"/>
 				</div>
 				<div class="kc_xq">
 					<h5 class="ellipsis">${ser.title }</h5>
@@ -240,7 +245,7 @@
 		<div class="kc_item">
 			<a href="play?seriesID=${ser.ID }">
 				<div class="kc_img">
-					<img class="lazy" data-original="http://www.shoutike.com/cover/${ser.picURL }" src="img/xiaoshou.png"/>
+					<img class="lazy" data-original="https://www.shoutike.com/cover/${ser.picURL }" src="img/xiaoshou.png"/>
 				</div>
 				<div class="kc_xq">
 					<h5 class="ellipsis">${ser.title }</h5>
@@ -259,7 +264,7 @@
 		<div class="kc_item">
 			<a href="play?seriesID=${ser.ID }">
 				<div class="kc_img">
-					<img class="lazy" data-original="http://www.shoutike.com/cover/${ser.picURL }" src="img/xiaoshou.png"/>
+					<img class="lazy" data-original="https://www.shoutike.com/cover/${ser.picURL }" src="img/xiaoshou.png"/>
 				</div>
 				<div class="kc_xq">
 					<h5 class="ellipsis">${ser.title }</h5>
@@ -451,8 +456,8 @@ $(function(){
             wx.onMenuShareAppMessage({  
                   title: '手提课-活到老学到老',  
                   desc: '课程“短小精练 ，生动有趣”。满足“课前预习，课后复习”。', 
-                  link: 'http://www.shoutike.com/wx/wxser?id=191&prolocutor=${prolocutorindex }',  
-                  imgUrl: 'http://www.shoutike.com/wx/img/share.jpg',  
+                  link: 'https://www.shoutike.com/wx/wxser?id=191&prolocutor=${prolocutorindex }',  
+                  imgUrl: 'https://www.shoutike.com/wx/img/share.jpg',  
                   trigger: function (res) {  
                     //alert('用户点击发送给朋友');  
                   },  
@@ -473,8 +478,8 @@ $(function(){
               wx.onMenuShareTimeline({  
             	  title: '手提课-活到老学到老',  
                  desc: '课程“短小精练，生动有趣”。满足“课前预习，课后复习”。', 
-                  link: 'http://www.shoutike.com/wx/wxser?id=191&prolocutor=${prolocutorindex }',  
-                  imgUrl: 'http://www.shoutike.com/wx/img/share.jpg',  
+                  link: 'https://www.shoutike.com/wx/wxser?id=191&prolocutor=${prolocutorindex }',  
+                  imgUrl: 'https://www.shoutike.com/wx/img/share.jpg',  
                   trigger: function (res) {  
                     //alert('用户点击分享到朋友圈');  
                   },  

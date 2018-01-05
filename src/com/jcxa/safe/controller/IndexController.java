@@ -1,5 +1,6 @@
 package com.jcxa.safe.controller;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -15,8 +16,10 @@ import com.jcxa.safe.entity.Prolocutor;
 import com.jcxa.safe.entity.Series;
 import com.jcxa.safe.entity.Users;
 import com.jcxa.safe.entity.WxUser;
+import com.jcxa.safe.entity.Wxorder;
 import com.jcxa.safe.service.ProlocutorService;
 import com.jcxa.safe.service.SeriesService;
+import com.jcxa.safe.service.VipService;
 import com.jcxa.safe.entity.Type;
 
 
@@ -29,7 +32,8 @@ public class IndexController {
 		private SeriesService seriesService;
 	    @Autowired
 		private ProlocutorService prolocutorService;
-		
+	    @Autowired
+		private VipService vipService;
 	  //学前
 	    //查询二级菜单视频
 		@RequestMapping(value="/wxindexxq")
@@ -115,7 +119,41 @@ public class IndexController {
 			ids.add(297);
 			ids.add(298);
 			ids.add(309);
-			 seriespublic=seriesService.selectfpseries(ids);
+			seriespublic=seriesService.selectfpseries(ids);
+			 
+			 
+			 //首页VIP判断开始
+			 Users uservip = (Users) session.getAttribute("user");
+				
+			 	int vp=0;
+			 	if(uservip != null){
+				if(vipService.judvip(uservip.getID())){
+					
+					//是VIP
+					
+					//获取VIP的到期时间
+					Wxorder wx=vipService.getwxorder(uservip.getID());
+					Date now = new Date(); 
+					Date over=wx.getOvertime();
+					
+					Long dat=now.getTime();
+					Long ove=over.getTime();
+					
+					if(dat<ove){
+						vp=1;
+						map.put("overtime", over);
+					}else{
+						vp=0;
+					}
+			
+				}else{
+					vp=0;
+				}
+			 }
+			 map.put("vp", vp);
+			 
+			 //首页VIP判断结束
+			 
 			 map.put("series", series);
 			 map.put("seriespublic", seriespublic);
 			
@@ -134,7 +172,7 @@ public class IndexController {
 		}
 	    
 	    
-	    //学前
+	    //小学
 	    //查询二级菜单视频
 		@RequestMapping(value="/wxser")
 		public String wxindexser(Map<String, Object> map,@RequestParam(value="id") int id,
@@ -232,6 +270,38 @@ public class IndexController {
 			 Integer pointb=0;
 			 Integer pointsan=1;
 			 
+			 
+			//首页VIP判断开始
+			 Users uservip = (Users) session.getAttribute("user");
+			
+			 	int vp=0;
+			 	if(uservip != null){
+				if(vipService.judvip(uservip.getID())){
+					
+					//是VIP
+					
+					//获取VIP的到期时间
+					Wxorder wx=vipService.getwxorder(uservip.getID());
+					Date now = new Date(); 
+					Date over=wx.getOvertime();
+					
+					Long dat=now.getTime();
+					Long ove=over.getTime();
+					
+					if(dat<ove){
+						vp=1;
+						map.put("overtime", over);
+					}else{
+						vp=0;
+					}
+			
+				}else{
+					vp=0;
+				}
+			 }
+			 map.put("vp", vp);
+			//首页VIP判断结束
+			 
 			 map.put("point", point);
 			 map.put("pointb", "a");
 			 map.put("series", series);
@@ -328,6 +398,39 @@ public class IndexController {
 			List<Series> freetwo=null;
 			free=seriesService.getfree("free");
 			freetwo=seriesService.getfree("freetwo");
+			
+			
+			//首页VIP判断开始
+			 Users uservip = (Users) session.getAttribute("user");
+			
+			 	int vp=0;
+			 	if(uservip != null){
+				if(vipService.judvip(uservip.getID())){
+					
+					//是VIP
+					
+					//获取VIP的到期时间
+					Wxorder wx=vipService.getwxorder(uservip.getID());
+					Date now = new Date(); 
+					Date over=wx.getOvertime();
+					
+					Long dat=now.getTime();
+					Long ove=over.getTime();
+					
+					if(dat<ove){
+						vp=1;
+						map.put("overtime", over);
+					}else{
+						vp=0;
+					}
+			
+				}else{
+					vp=0;
+				}
+			 }
+			 map.put("vp", vp);
+			//首页VIP判断结束
+			
 			
 			map.put("free", free);
 			map.put("freetwo", freetwo);
@@ -470,6 +573,39 @@ public class IndexController {
 			List<Series> freetwo=null;
 			free=seriesService.getfree("free");
 			freetwo=seriesService.getfree("freetwo");
+			
+			
+			//首页VIP判断开始
+			 Users uservip = (Users) session.getAttribute("user");
+			
+			 	int vp=0;
+			 	if(uservip != null){
+				if(vipService.judvip(uservip.getID())){
+					
+					//是VIP
+					
+					//获取VIP的到期时间
+					Wxorder wx=vipService.getwxorder(uservip.getID());
+					Date now = new Date(); 
+					Date over=wx.getOvertime();
+					
+					Long dat=now.getTime();
+					Long ove=over.getTime();
+					
+					if(dat<ove){
+						vp=1;
+						map.put("overtime", over);
+					}else{
+						vp=0;
+					}
+			
+				}else{
+					vp=0;
+				}
+			 }
+			 map.put("vp", vp);
+			//首页VIP判断结束
+			
 			
 			map.put("free", free);
 			map.put("freetwo", freetwo);

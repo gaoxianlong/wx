@@ -1,9 +1,8 @@
 package com.jcxa.safe.dao;
 
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
-
+import com.jcxa.safe.entity.OrderandSeries;
 import com.jcxa.safe.entity.Percentage;
 import com.jcxa.safe.entity.Profit;
 import com.jcxa.safe.entity.Prolocutor;
@@ -11,9 +10,7 @@ import com.jcxa.safe.entity.Tixian;
 import com.jcxa.safe.entity.Users;
 import com.jcxa.safe.entity.WxUser;
 
-
 public interface ProlocutorDao {
-
 
 		public Integer openidsel(Integer openid);
 		public Integer openidzhu(String openid);
@@ -46,5 +43,7 @@ public interface ProlocutorDao {
 		public String selspro(Integer ID);
 		/**通过id查询微信用户*/
 		public List<WxUser> selectWxUser(Integer id);
+		//查询用户自己单个购买的课程订单
+		public List<OrderandSeries> selorderandk(@Param("id")Integer id);
 	
 }

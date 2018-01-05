@@ -54,7 +54,7 @@ public class TixianController {
 		String uidd = String.valueOf(idd);
 		//共账号及商户相关参数
 		String appid = "wx1d42fa2fba520d22";
-		String backUri = "http://www.shoutike.com/wx/tixiantopayServlet";
+		String backUri = "https://www.shoutike.com/wx/tixiantopayServlet";
 		String price=pric;
 
 		//授权后要跳转的链接所需的参数一般有会员号，金额，订单号之类，

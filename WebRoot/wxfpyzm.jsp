@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>手提课-活到老学到老</title>
+<title>手提课</title>
 <meta http-equiv="content-type" content="text/htm" charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" type="text/css" href="<%=path%>/css/wxpublic/wxpublic.css"/>

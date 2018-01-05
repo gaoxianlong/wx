@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>手提课-活到老学到老</title>
+<title>手提课</title>
 <meta http-equiv="content-type" content="text/htm" charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" type="text/css" href="<%=path%>/css/wxpublic/wxpublic.css"/>
@@ -32,7 +32,7 @@
 		<div class="audio_center">
 			<div class="audio_singer">
 				<div class="singerimg" >
-					<img src="http://www.shoutike.com/STK/cover/${bg }"" id="circle" class="anmiting"/>
+					<img src="https://www.shoutike.com/STK/cover/${bg }"" id="circle" class="anmiting"/>
 				</div>
 			</div>
 			<div class="lrc_mask">
@@ -109,7 +109,7 @@
 <!-- <script type="text/javascript" src="<%=path%>/js/stopscroll.js"></script> -->
 <script>
 //初始化加载背景图和唱片图片
-var backbg = 'http://www.shoutike.com/STK/cover/${bg}';
+var backbg = 'https://www.shoutike.com/STK/cover/${bg}';
 $('.bg').css('background','url("'+backbg+'") no-repeat center');
 $('.bg').css('background-size','cover');
 $('.bg').css('-webkit-background-size','cover');
@@ -186,7 +186,7 @@ $(function(){
                   title: '手提课-活到老学到老',  
                   desc: '${Title}',  
                   link: urll,  
-                  imgUrl: 'http://www.shoutike.com/wx/img/share.jpg',  
+                  imgUrl: 'https://www.shoutike.com/wx/img/share.jpg',  
                   trigger: function (res) {  
                     //alert('用户点击发送给朋友');  
                   },  
@@ -208,7 +208,7 @@ $(function(){
             	  title: '手提课-活到老学到老,${Title}',  
                   desc: '',  
                   link: urll,  
-                  imgUrl: 'http://www.shoutike.com/wx/img/share.jpg',  
+                  imgUrl: 'https://www.shoutike.com/wx/img/share.jpg',  
                   trigger: function (res) {  
                     //alert('用户点击分享到朋友圈');  
                   },  

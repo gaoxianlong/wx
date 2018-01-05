@@ -118,4 +118,23 @@
         SELECT * FROM twxuser
         WHERE ID=#{ID}
     </select>
+    
+    <!-- 双表查询订单记录关联Series -->
+	 <select id="selorderandk" resultMap="orderandk">
+         SELECT * FROM torder tr JOIN series s ON tr.SeriesID=s.id AND UserID=#{id} 
+     </select>
+     <resultMap type="OrderandSeries" id="orderandk">
+         <id property="id" column="ID"/>
+         <result property="Price" column="Price"/>
+         <result property="outtradeno" column="outtradeno"/>
+         <result property="CreateTime" column="CreateTime"/>
+         <result property="overtime" column="overtime"/>
+         <association property="seriesid" javaType="Series">
+             <id property="ID" column="ID"/>
+             <result property="Title" column="Title"/>
+             <result property="PicURL" column="PicURL"/>
+             <result property="RealPrice" column="RealPrice"/>
+         </association>
+     </resultMap>
+    
 </mapper>

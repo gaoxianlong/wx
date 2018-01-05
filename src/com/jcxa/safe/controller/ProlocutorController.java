@@ -11,18 +11,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.page.PageMethod;
+import com.jcxa.safe.entity.OrderandSeries;
 import com.jcxa.safe.entity.Percentage;
 import com.jcxa.safe.entity.Profit;
 import com.jcxa.safe.entity.Prolocutor;
 import com.jcxa.safe.entity.Tixian;
 import com.jcxa.safe.entity.Users;
 import com.jcxa.safe.entity.WxUser;
+import com.jcxa.safe.entity.Wxorder;
 import com.jcxa.safe.service.ProlocutorService;
+import com.jcxa.safe.service.VipService;
 import com.utils.DateUtils;
+
+import PubMethods.GetproListId;
 
 
 
@@ -32,6 +38,8 @@ import com.utils.DateUtils;
 public class ProlocutorController {
 	@Autowired
 	private ProlocutorService prolocutorService;
+	@Autowired
+	private VipService vipService;
 	
 	//提现mopney
 	
@@ -148,7 +156,7 @@ public class ProlocutorController {
 				System.out.println(wxuser+"我是微信列表");
 				 lsuser = pageInfo.getList();
 				 map.put("info", pageInfo);
-				map.put("userss", olist);
+				 map.put("userss", olist);
 				}
 	    	}	
 		}
@@ -165,7 +173,7 @@ public class ProlocutorController {
 			double alow=0.0;
 			double noo=0.0;
 			int money=0;
-			int  total=0;
+			int total=0;
 			
 			Users user = (Users) session.getAttribute("user");
 			WxUser wxuser = (WxUser) session.getAttribute("wxuser");
@@ -281,4 +289,243 @@ public class ProlocutorController {
 							return "views/spokesman/wxspokesman.jsp";
 			
 		}
+		
+		
+		
+		//代言人下的学员订单详情
+				@RequestMapping("proordercourse")
+				public String proordercourse(Map<String, Object> map,HttpSession session){
+				
+					ArrayList<OrderandSeries>  course = new ArrayList<OrderandSeries>();
+					List<Wxorder>  viptotal = new ArrayList<Wxorder>();
+					
+					//Users user = (Users) session.getAttribute("user");
+					
+					Users user =new Users();
+					user.setID(21142);
+					user.setProlocutor("4744d348-5809-4f2a-b787-4cdeabb883af");
+					
+					WxUser wxuser = (WxUser) session.getAttribute("wxuser");
+					String prolocutor="a";
+					try {
+					  prolocutor=prolocutorService.selspro(user.getID());
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+					
+					
+					if(user != null){
+						if(prolocutor != null){
+							//int id=user.getID();
+								
+				    
+					List<Prolocutor> ls = null;
+					Percentage ps=prolocutorService.selper();
+					
+					Integer xiaidzhu=0;
+					Integer xiaid=0;
+					ArrayList<Integer> xiaxianid=new ArrayList<Integer>();
+					ArrayList<Integer> xiaxianidzhu=new ArrayList<Integer>();
+					ArrayList<String> xiaxianopenid=new ArrayList<String>();
+					
+					if(prolocutor != null){	
+						 ls= prolocutorService.selxiaxian(prolocutor);
+					}
+					 
+					if(ls.size()>0){
+						
+						for(int i=0;i<ls.size();i++){
+							xiaxianopenid.add(ls.get(i).getOpenid());
+						}
+					}
+					if(xiaxianopenid.size()>0){
+						
+						for(int i=0;i<xiaxianopenid.size();i++){
+							xiaidzhu=prolocutorService.openidzhu(xiaxianopenid.get(i));
+							
+							xiaxianidzhu.add(xiaidzhu);
+							//xiaxianid.xiaxianopenid(xiaxianopenid.get(i).getOpenid());
+						}
+					}
+					
+					if(xiaxianidzhu.size()>0){
+						for(int i=0;i<xiaxianidzhu.size();i++){
+							xiaid=prolocutorService.openidsel(xiaxianidzhu.get(i));
+							
+							xiaxianid.add(xiaid);
+							//xiaxianid.xiaxianopenid(xiaxianopenid.get(i).getOpenid());
+						}
+					}
+					
+					
+						if(xiaxianid.size()>0){
+							//kaishi
+							for(int i=0;i<xiaxianid.size();i++){
+								try {
+									try {
+									//now
+										Wxorder viporder=vipService.getwxorder(xiaxianid.get(i));
+										if(viporder !=null){
+											viptotal.add(viporder);
+										}
+											
+										
+									} catch (Exception e) {
+										// TODO: handle exception
+									}
+									
+								} catch (Exception e) {
+									// TODO: handle exception
+								}
+							}
+							
+							//jiesu
+							}	
+					
+						if(xiaxianid.size()>0){
+							//kaishi
+							for(int i=0;i<xiaxianid.size();i++){
+								try {
+									try {
+									//now
+										List<OrderandSeries> oneorderbyone=prolocutorService.selorderandk(xiaxianid.get(i));
+										course.addAll(oneorderbyone);	
+										
+										
+									} catch (Exception e) {
+										// TODO: handle exception
+									}
+									
+								} catch (Exception e) {
+									// TODO: handle exception
+								}
+							}
+							
+							//jiesu
+							}	
+						}
+					}
+				
+						map.put("courseper", 0.2);
+						map.put("vipper", 0.3);
+						map.put("course", course);
+						map.put("viptotal", viptotal);
+						return "views/spokesman/wxtxorder.jsp";
+				}
+				
+				
+				//代言人下的学员订单详情test
+				@RequestMapping("proordervip")
+				@ResponseBody
+				public List<Wxorder> proordervip(Map<String, Object> map,HttpSession session){
+				
+					ArrayList<Wxorder>  viptotal = new ArrayList<Wxorder>();
+					
+					//Users user = (Users) session.getAttribute("user");
+					
+					Users user =new Users();
+					user.setID(21142);
+					user.setProlocutor("4744d348-5809-4f2a-b787-4cdeabb883af");
+					
+					WxUser wxuser = (WxUser) session.getAttribute("wxuser");
+					String prolocutor="a";
+					try {
+					  prolocutor=prolocutorService.selspro(user.getID());
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+					
+					
+					if(user != null){
+						if(prolocutor != null){
+							//int id=user.getID();
+								
+				    
+					List<Prolocutor> ls = null;
+					Percentage ps=prolocutorService.selper();
+					
+					Integer xiaidzhu=0;
+					Integer xiaid=0;
+					ArrayList<Integer> xiaxianid=new ArrayList<Integer>();
+					ArrayList<Integer> xiaxianidzhu=new ArrayList<Integer>();
+					ArrayList<String> xiaxianopenid=new ArrayList<String>();
+					
+					if(prolocutor != null){	
+						 ls= prolocutorService.selxiaxian(prolocutor);
+					}
+					 
+					if(ls.size()>0){
+						
+						for(int i=0;i<ls.size();i++){
+							xiaxianopenid.add(ls.get(i).getOpenid());
+						}
+					}
+					if(xiaxianopenid.size()>0){
+						
+						for(int i=0;i<xiaxianopenid.size();i++){
+							xiaidzhu=prolocutorService.openidzhu(xiaxianopenid.get(i));
+							
+							xiaxianidzhu.add(xiaidzhu);
+							//xiaxianid.xiaxianopenid(xiaxianopenid.get(i).getOpenid());
+						}
+					}
+					
+					if(xiaxianidzhu.size()>0){
+						for(int i=0;i<xiaxianidzhu.size();i++){
+							xiaid=prolocutorService.openidsel(xiaxianidzhu.get(i));
+							
+							xiaxianid.add(xiaid);
+							//xiaxianid.xiaxianopenid(xiaxianopenid.get(i).getOpenid());
+						}
+					}
+					
+						double torder=0;
+						double vip=0;
+						
+					
+						if(xiaxianid.size()>0){
+							//kaishi
+							for(int i=0;i<xiaxianid.size();i++){
+								try {
+									try {
+									//now
+										Wxorder viporder=vipService.getwxorder(xiaxianid.get(i));
+										viptotal.add(viporder);	
+									} catch (Exception e) {
+										// TODO: handle exception
+									}
+									
+								} catch (Exception e) {
+									// TODO: handle exception
+								}
+							}
+							
+							//jiesu
+							}	
+						}
+					}
+									
+									return viptotal;
+				}
+				
+//				//代言人下的学员订单详情order
+//				@RequestMapping("proorder")
+//				@ResponseBody
+//				public List<OrderandSeries> proorder(Map<String, Object> map,HttpSession session){
+//				
+//					List<OrderandSeries>  total=null;
+//					Users user = (Users) session.getAttribute("user");
+//					
+//					if(user != null){
+//						
+//					ArrayList<Integer> idlist = GetproListId.getproListId(user);
+//					
+//					for(int i=0;i<idlist.size();i++){
+//						List<OrderandSeries> oneorderbyone=prolocutorService.selorderandk(idlist.get(i));
+//						total.addAll(oneorderbyone);
+//						}		
+//					}				
+//						return total;
+//					
+//				}
 }
