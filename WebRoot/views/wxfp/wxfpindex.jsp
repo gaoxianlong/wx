@@ -121,6 +121,8 @@
 				<li class="navss"><a href="wxfprighthobby?id=${point }&erid=298&sorid=1&pointding=4" data-id="${pointsan }" value="298">记忆法</a></li>
 				<li class="navss"><a href="wxfprighthobby?id=${point }&erid=309&sorid=1&pointding=5" data-id="${pointsan }" value="309">国学</a></li>
 				<li class="navss"><a href="wxfprighthobby?id=${point }&erid=304&sorid=1&pointding=6" data-id="${pointsan }" value="304">古诗词</a></li>
+				<li class="navss"><a href="wxindexrighthobby?id=${point }&erid=310&sorid=1&pointding=7" data-id="${pointsan }" value="310">成语故事</a></li>
+				<li class="navss"><a href="wxindexrighthobby?id=${point }&erid=311&sorid=1&pointding=8" data-id="${pointsan }" value="311">英文儿歌</a></li>
 				</ul>
 			</div>
 		</div>
